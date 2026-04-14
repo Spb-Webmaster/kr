@@ -1,0 +1,63 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #E20607;
+$colorRed2: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+.advantages {
+    padding: 20px 0;
+    max-width: 1150px;
+    margin: 0 auto;
+
+    width: 100%;
+    min-height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    .advantage {
+        width: 30%;
+        height: 24px;
+        position: relative;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 30px;
+        color: $colorRed;
+
+    }
+
+}
+
+@media (max-width: 960px) {
+    .advantages {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+
+        .advantage {
+            width: calc(50% - 8px);
+            height: auto;
+        }
+    }
+}
+
+@media (max-width: 560px) {
+    .advantages {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        flex-direction: column;
+        gap: 0;
+
+        .advantage {
+            width: 100%;
+            margin: 10px 0;
+        }
+    }
+}

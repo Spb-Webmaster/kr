@@ -1,0 +1,136 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #E20607;
+$colorRed2: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+
+
+// Input
+$input-height: 50px;
+$border-color: #E0E0E0;
+$primary-color: $colorGrey;
+
+
+
+
+.input-group {
+    margin-bottom: 27px;
+    position: relative;
+   .input-group__label {
+        display: block;
+        position: absolute;
+        top: 0;
+        font-size: 15px;
+        // to keep the position center
+        line-height: $input-height;
+        color: $colorGrey;
+        left: 5px;
+        padding: 0 5px;
+        transition: line-height 200ms ease-in-out,
+        font-size 200ms ease-in-out,
+        top 200ms ease-in-out;
+        // firefox fix
+        pointer-events: none;
+       span {
+           color: $colorRed;
+       }
+    }
+    .input-group__input, textarea {
+        width: 100%;
+        height: $input-height;
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        padding: 0 10px;
+        cursor: auto !important;
+        appearance:none;
+        resize: none;
+        // there must a required prop in input
+        // &:valid,
+        // need to add placeholder
+        &:not(:placeholder-shown),
+        &:focus {
+            + label {
+                background-color: white;
+                line-height: 10px;
+                opacity: 1;
+                font-size: 14px;
+                top: -5px;
+            }
+        }
+        &:focus {
+            outline: none;
+            border: 1px solid $border-color;
+            + label {
+                color: $primary-color;
+            }
+        }
+
+
+    }
+    textarea {
+        min-height: 120px;
+        width: 100% !important;
+        padding: 20px 10px !important;
+        resize: vertical !important;
+
+    }
+
+
+
+}
+.input-button {
+    padding:7px 0 10px 0;
+    position: relative;
+    .btn {
+        cursor: pointer !important;
+    }
+}
+/** Ошибки **/
+.input-group {
+    .input_error {
+        position: absolute;
+        background: #fff;
+        padding: 0 10px;
+        color: $colorRed;
+        font-size: 14px;
+        bottom: -9px;
+        left: 10px;
+    }
+
+    .input-group__input, textarea {
+        &._error {
+            border: 1px solid $colorRed;
+        }
+    }
+}
+
+.input-date-picker {
+    input::placeholder {
+        color: $color;
+    }
+}
+.position_top {
+    background-color: white;
+    line-height: 10px !important;
+    opacity: 1;
+    font-size: 14px;
+    top: -5px !important;
+}
+
+.input_group__description {
+    color: $color;
+    position: relative;
+    padding: 0 0 14px 0;
+    left: 9px;
+    span {
+        color: $colorRed;
+    }
+
+}

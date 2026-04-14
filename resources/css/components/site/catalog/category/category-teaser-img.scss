@@ -1,0 +1,97 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #E20607;
+$colorRed2: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+.catalog_category_category-teaser-img {
+    position: relative;
+    padding: 20px 0;
+
+    .t_block {
+        padding: 10px 0;
+
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            padding: 20px 0 10px 0;
+        }
+
+        .subtitle {
+            color: $colorGrey;
+            text-align: center;
+            padding: 0 0 10px 0;
+        }
+    }
+
+    .flex {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .teasers {
+        padding: 16px 0 0 0;
+        position: relative;
+
+        .teaser {
+            text-decoration: none;
+            color: $color;
+            position: relative;
+            max-width: 359px;
+            z-index: 4;
+
+            img {
+                border-radius: 13px;
+                z-index: 5;
+                position: relative;
+            }
+
+            .category_name {
+                width: 100%;
+                height: auto;
+                position: relative;
+                z-index: 6;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: -4px;
+
+                .absolute {
+                    width: auto;
+                    position: absolute;
+                    z-index: 6;
+                    height: 30px;
+                    background: #fff;
+                    color: $color;
+                    bottom: 0;
+                    padding: 0 26px;
+                    border-radius: 15px 15px 0 0;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    line-height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: 0.2s;
+
+                }
+            }
+            &:hover {
+                .absolute {
+                    color: $colorRed;
+                }
+            }
+        }
+    }
+}

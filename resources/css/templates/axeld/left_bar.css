@@ -1,0 +1,53 @@
+.left_bar {
+  width: 100%;
+}
+.left_bar .price {
+  position: relative;
+}
+.left_bar .button-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+._box {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+._box ._box__flex {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #E20607;
+  transition: 0.2s;
+  border-radius: 8px;
+  cursor: pointer;
+}
+._box ._box__flex:hover {
+  border: 1px solid #EF533F;
+}
+._box ._box__flex .label {
+  padding: 10px;
+}
+._box ._box__flex .after {
+  font-size: 24px;
+  transform: rotate(90deg); /* Equal to rotateZ(45deg) */
+  padding: 10px;
+  transition: 0.2s;
+}
+._box ._box__flex .after._up {
+  transform: rotate(271deg); /* Equal to rotateZ(45deg) */
+}
+
+.site_catalog_left-bar_price-slider {
+  position: relative;
+  padding: 0 0 16px 0;
+}
+
+/*# sourceMappingURL=left_bar.css.map */

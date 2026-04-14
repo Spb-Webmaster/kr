@@ -1,0 +1,66 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #E20607;
+$colorRed2: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorGreen2: #43D38B;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+
+.left_bar {
+    width: 100%;
+    .price {
+        position: relative;
+    }
+    .button-right {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+}
+._box {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+._box__flex {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $colorRed;
+    transition: 0.2s;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid $colorRed2;
+    }
+    .label {
+        padding: 10px;
+    }
+    .after {
+        font-size: 24px;
+        transform: rotate(90deg); /* Equal to rotateZ(45deg) */
+        padding: 10px;
+        transition: 0.2s;
+        &._up {
+            transform: rotate(271deg); /* Equal to rotateZ(45deg) */
+
+        }
+    }
+}
+
+}
+.site_catalog_left-bar_price-slider {
+    position: relative;
+    padding: 0 0 16px 0;
+}

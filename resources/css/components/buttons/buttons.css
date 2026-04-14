@@ -1,0 +1,82 @@
+.btn,
+.btn_danger {
+  width: auto;
+  height: 34px;
+  display: inline-table;
+  text-align: center;
+  padding: 5px 20px;
+  background: #E20607;
+  border-radius: 4px;
+  border: 1px solid #E20607;
+  color: #FFFFFF;
+  position: relative;
+  transition: 0.3s;
+  text-decoration: none !important;
+}
+
+.btn.btn_white {
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #E20607;
+  color: #282828;
+  position: relative;
+  transition: 0.3s;
+  text-decoration: none !important;
+}
+
+.btn.btn_white:hover {
+  background: #E20607;
+  border-radius: 4px;
+  border: 1px solid #E20607;
+  color: #fff;
+  position: relative;
+  transition: 0.3s;
+  text-decoration: none !important;
+}
+
+.btn.btn_green {
+  background: #43D38B;
+  border-radius: 4px;
+  border: 1px solid #43D38B;
+  color: #ffffff;
+  position: relative;
+  transition: 0.3s;
+  text-decoration: none !important;
+}
+
+.btn.btn_green:hover {
+  background: #ffffff;
+  border: 1px solid #43D38B;
+  color: #43D38B;
+}
+
+.btn.over,
+.btn:hover {
+  background: #FFFFFF;
+  color: #E20607;
+  border: 1px solid #E20607;
+}
+
+.btn.over:hover {
+  background: #E20607;
+  color: #FFFFFF;
+  border: 1px solid #E20607;
+}
+
+.btn.btn-big {
+  padding: 13px 20px;
+  height: auto;
+  font-size: 18px;
+}
+
+.btn.btn-middle {
+  padding: 8px 20px;
+}
+
+.btn.btn-mini {
+  padding: 0 16px;
+  height: 26px;
+  font-size: 12px;
+}
+
+/*# sourceMappingURL=buttons.css.map */

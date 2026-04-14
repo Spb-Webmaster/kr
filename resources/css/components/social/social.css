@@ -1,0 +1,11 @@
+.social_social {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  padding: 20px 0 0 30px;
+}
+.social_social a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=social.css.map */

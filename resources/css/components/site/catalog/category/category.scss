@@ -1,0 +1,49 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #E20607;
+$colorRed2: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+.catalog_category_category {
+    position: relative;
+    padding: 30px 0 30px 0;
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+        padding: 20px 0;
+        color: $colorRed;
+
+    }
+    .flex {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+        gap: 15px;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 16px;
+            text-decoration: none;
+            height: 40px;
+            color: $colorRed;
+            border: 1px solid $colorRed;
+            border-radius: 6px;
+            transition: 0.2s;
+            &.active,
+            &:hover {
+                background: $colorRed;
+                color: #fff;
+            }
+        }
+    }
+}

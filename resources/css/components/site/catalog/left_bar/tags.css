@@ -1,0 +1,25 @@
+.site_catalog_left-bar_tags-slider {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.tag__block {
+  padding: 20px 0 0 0;
+}
+
+.tag__flex {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+}
+.tag__flex .tag__left {
+  min-width: 60px;
+  height: auto;
+}
+.tag__flex .tag__right {
+  width: 100%;
+  position: relative;
+  font-size: 15px;
+}
+
+/*# sourceMappingURL=tags.css.map */

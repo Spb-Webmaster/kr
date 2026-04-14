@@ -1,0 +1,37 @@
+.catalog_category_category {
+  position: relative;
+  padding: 30px 0 30px 0;
+}
+.catalog_category_category h2 {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0;
+  color: #E20607;
+}
+.catalog_category_category .flex {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 15px;
+}
+.catalog_category_category .flex a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+  text-decoration: none;
+  height: 40px;
+  color: #E20607;
+  border: 1px solid #E20607;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+.catalog_category_category .flex a.active, .catalog_category_category .flex a:hover {
+  background: #E20607;
+  color: #fff;
+}
+
+/*# sourceMappingURL=category.css.map */

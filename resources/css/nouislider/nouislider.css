@@ -1,0 +1,69 @@
+.left_bar .price_toggle {
+  padding-bottom: 12px;
+}
+.left_bar .noUi-target {
+  background: #eeeeee;
+  height: 7px;
+  margin: 0;
+  border: none;
+  padding: 0 10px;
+}
+.left_bar .noUi-connect {
+  background: #EF533F;
+}
+.left_bar .noUi-handle {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  border-radius: 30px !important;
+  border: 1px solid #EF533F !important;
+  background: #E20607 !important;
+  right: -8px !important;
+  top: -5px !important;
+  box-shadow: none !important;
+}
+.left_bar .noUi-handle:before, .left_bar .noUi-handle:after {
+  display: none !important;
+}
+.left_bar .price_inputs {
+  width: 100%;
+  min-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 25px 10px 15px 10px;
+  margin: 0;
+}
+.left_bar .price_inputs input {
+  height: 30px;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  padding: 0 3px;
+  font-size: 15px;
+  position: relative;
+  max-width: 94px;
+}
+.left_bar .price_inputs .min_r, .left_bar .price_inputs .max_r {
+  position: relative;
+  top: 6px;
+  color: #E20607;
+  font-weight: 600;
+}
+.left_bar .price_inputs .p_left_r {
+  width: 50%;
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+}
+.left_bar .price_inputs .p_right_r {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.left_bar .price-filter-submit {
+  margin: 20px 0 0 0;
+}
+
+/*# sourceMappingURL=nouislider.css.map */

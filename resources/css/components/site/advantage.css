@@ -1,0 +1,47 @@
+.advantages {
+  padding: 20px 0;
+  max-width: 1150px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.advantages .advantage {
+  width: 30%;
+  height: 24px;
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 30px;
+  color: #E20607;
+}
+
+@media (max-width: 960px) {
+  .advantages {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  .advantages .advantage {
+    width: calc(50% - 8px);
+    height: auto;
+  }
+}
+@media (max-width: 560px) {
+  .advantages {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    flex-direction: column;
+    gap: 0;
+  }
+  .advantages .advantage {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/*# sourceMappingURL=advantage.css.map */

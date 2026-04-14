@@ -1,0 +1,44 @@
+@import 'pagination.scss';
+@import 'general-style/paddind.scss';
+@import 'general-style/width.scss';
+@import 'general-style/button.scss';
+@import 'loader_map.css';
+@import '@fontsource-variable/roboto/wdth.css';
+@import 'fancybox/fancubox6.scss';
+@import 'templates/axeld/header.scss';
+@import 'templates/axeld/footer.scss';
+@import 'templates/axeld/content.scss';
+@import 'templates/axeld/left_bar.scss';
+@import 'templates/axeld/product.scss';
+@import 'message/flach_message.scss';
+@import 'trix/trix.scss';
+@import 'nouislider/nouislider.scss';
+
+/*
+
+@import 'fonts.scss';*/
+@import 'auth/auth.scss';
+@import 'components/social/social.scss';
+@import 'components/site/slider/slider.scss';
+@import 'components/site/menu/top_menu.scss';
+@import 'components/site/catalog/category/category.scss';
+@import 'components/site/catalog/category/category-tag.scss';
+@import 'components/site/catalog/category/category-teaser-img.scss';
+@import 'components/site/catalog/left_bar/tags.scss';
+@import 'components/site/advantage.scss';
+@import 'components/logo/logo.scss';
+@import 'components/buttons/buttons.scss';
+@import 'components/avatar/avatar-user-component.scss';
+@import 'components/form/form-radio-1.scss';
+@import 'components/form/form-checkbox3-component.scss';
+@import 'components/form/form-checkbox4.scss';
+@import 'components/form/form-input-component.scss';
+@import 'components/form/form-loader-component.scss';
+@import 'components/form/form-response-component.scss';
+@import 'components/form/form-select-component.scss';
+@import 'components/form/form-upload-files-component.scss';
+@import 'components/cabinet/enter/enter.scss';
+@import 'components/cabinet/cabinet-menu-horizontal.scss';
+@import 'components/cabinet/title.scss';
+@import 'components/cabinet/partial/style.scss';
+@import 'style.scss';

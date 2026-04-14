@@ -1,0 +1,75 @@
+header .die_radius {
+  position: relative;
+  width: 100%;
+  max-width: 1260px;
+  height: auto;
+  margin: 0 auto 0 auto;
+}
+header .die_radius .header-home__wrap {
+  width: 100%;
+  max-width: 1260px;
+  height: 85px;
+  border-radius: 77px;
+  background: #fff;
+  position: absolute;
+  z-index: 100;
+  margin: 20px 0 0 0;
+  padding: 0 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1098039216);
+}
+header .die_radius .header-home__wrap .flex {
+  justify-content: space-between;
+}
+header .die_radius .left {
+  min-width: 193px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .die_radius .right {
+  display: flex;
+  justify-content: end;
+  gap: 40px;
+  height: 85px;
+}
+
+.header-page {
+  min-height: 106px;
+}
+
+@media (max-width: 1440px) {
+  header {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+  }
+  header.header-home {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (max-width: 1300px) {
+  header .die_radius {
+    margin: 0 2%;
+    width: 96%;
+  }
+}
+@media (max-width: 568px) {
+  header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  header .die_radius .right {
+    gap: 13px;
+  }
+  header .die_radius .header-home__wrap {
+    padding: 0;
+  }
+  header .cabinet_enter_enter {
+    width: 63px;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

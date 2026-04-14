@@ -1,0 +1,35 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #E20607;
+$colorRed2: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+.site_catalog_left-bar_tags-slider {
+    position: relative;
+    padding-bottom: 20px;
+}
+.tag__block {
+padding: 20px 0 0 0;
+}
+.tag__flex {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+
+    .tag__left {
+        min-width: 60px;
+        height: auto;
+    }
+
+    .tag__right {
+        width: 100%;
+        position: relative;
+        font-size: 15px;
+    }
+}

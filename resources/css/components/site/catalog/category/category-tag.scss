@@ -1,0 +1,61 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #E20607;
+$colorRed2: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+.catalog_category_category-tag {
+    position: relative;
+    width: 100%;
+    height: 519px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 60px;
+
+        a.item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 15px;
+            background: #fff;
+            color: $color;
+            border-radius: 36px;
+            height: 55px;
+            position: relative;
+            text-decoration: none;
+            gap: 10px;
+
+            .count {
+                font-weight: 600;
+                color: $colorRed;
+            }
+
+            &:hover {
+                color: $colorRed;
+            }
+
+        }
+    }
+}
+
+@media (max-width: 568px) {
+    .catalog_category_category-tag {
+        .flex {
+            padding: 40px 20px 20px;
+        }
+    }
+}

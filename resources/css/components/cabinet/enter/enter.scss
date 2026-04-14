@@ -1,0 +1,37 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #E20607;
+$colorRed2: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+.cabinet_enter_enter {
+    width:80px;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        &:before {
+            display: inline-block;
+            width: 1px;
+            height: 30px;
+            background: $colorRed;
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+    }
+}
