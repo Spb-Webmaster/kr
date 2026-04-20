@@ -3,6 +3,7 @@
 namespace App\View\Components\Site\Catalog\Category;
 
 use Closure;
+use Domain\ProductCategory\ViewModel\ProductCategoryViewModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -13,7 +14,7 @@ class CategoryTeaserImg extends Component
      */
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -21,6 +22,8 @@ class CategoryTeaserImg extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.site.catalog.category.category-teaser-img');
+        return view('components.site.catalog.category.category-teaser-img', [
+            'categories' => ProductCategoryViewModel::make()->productCategory(),
+        ]);
     }
 }

@@ -1,0 +1,67 @@
+#options-card .product_single__price-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  border: 1.5px solid transparent;
+  background: #FAFAFA;
+  height: auto;
+}
+#options-card .product_single__price-row:hover {
+  border-color: #ebebeb;
+}
+#options-card .product_single__price-row.active {
+  border-color: #E20607;
+}
+#options-card .payment-systems .payment__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8A8A8A;
+}
+#options-card .payment-systems .price {
+  font-size: 20px;
+  color: #8A8A8A;
+  position: relative;
+  display: block;
+}
+#options-card .payment-systems .price i {
+  font-style: normal;
+  font-size: 42px;
+  font-weight: 700;
+  color: #282828;
+}
+#options-card .payment-systems .label {
+  font-size: 12px;
+  color: #8A8A8A;
+  margin: 1px 0 16px 0;
+  display: block;
+}
+#options-card .payment-systems .btn {
+  padding-left: 48px;
+  padding-right: 48px;
+}
+#options-card .payment-systems .btn:hover::before {
+  transform: translateX(100%);
+}
+#options-card .payment-systems .btn:hover {
+  background: #B30510;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(227, 6, 19, 0.35);
+  color: #fff;
+}
+#options-card .payment-systems .btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 668px) {
+  .payment-systems {
+    padding-top: 26px;
+  }
+}
+
+/*# sourceMappingURL=element_ai.css.map */

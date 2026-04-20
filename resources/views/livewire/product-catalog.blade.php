@@ -67,12 +67,12 @@
                 <div class="products_list">
                     @foreach($products as $product)
                         <div class="teaser">
-                            <a href="{{ route('certificate', ['category' => $category, 'slug' => $product->slug]) }}" class="img"
+                            <a href="{{ route('certificate', ['slug' => $product->slug]) }}" class="img"
                                  style="background-image: url({{ asset(intervention('400x269', $product->img, 'image/product', 'cover'))}})"></a>
 
                             <div class="title">{{ $product->title }}</div>
                             <div class="button">
-                                <a href="{{ route('certificate', ['category' => $category, 'slug' => $product->slug]) }}">
+                                <a href="{{ route('certificate', ['slug' => $product->slug]) }}">
                                     <span>{{ $product->display_price }}</span>
                                     <span class="currency">{{ config('currency.currency.RUB') }}</span>
                                 </a>

@@ -8,11 +8,11 @@
                         <x-logo.logo/>
                     </div>
                     <div class="right _flex">
-                        <div class="_left">
-                            <x-site.menu.top-menu/>
-                        </div>
                         <div class="_right">
                             <x-cabinet.enter.enter/>
+                        </div>
+                        <div class="_left">
+                            <x-site.menu.top-menu/>
                         </div>
                     </div>
                 </div>

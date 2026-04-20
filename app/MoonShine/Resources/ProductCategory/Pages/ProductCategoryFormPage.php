@@ -26,6 +26,7 @@ use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
 use Throwable;
 
@@ -83,6 +84,7 @@ class ProductCategoryFormPage extends FormPage
 
                             Enum::make('Уплата НДС', 'payment_nds')
                                 ->attach(PaymentNdsEnum::class),*/
+                            Switcher::make('Публикация', 'published'),
 
                             Date::make(__('Дата создания'), 'created_at')
                                 ->format("d.m.Y")

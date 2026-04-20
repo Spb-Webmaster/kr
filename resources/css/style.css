@@ -28,6 +28,8 @@ body .content_ {
 }
 body footer {
   flex-shrink: 0;
+  z-index: 100;
+  background: #fff;
 }
 
 hr {

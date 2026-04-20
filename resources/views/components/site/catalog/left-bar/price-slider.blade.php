@@ -14,7 +14,6 @@
                    value="{{ $minPrice }}"
                    data-min="{{ $absoluteMin }}"
                    data-max="{{ $absoluteMax }}"
-                   @if($wireMin) wire:model.live.debounce.500ms="{{ $wireMin }}" @endif
                    placeholder="От">
             <span class="min_r">₽</span>
         </div>
@@ -23,7 +22,6 @@
                    value="{{ $maxPrice }}"
                    data-min="{{ $absoluteMin }}"
                    data-max="{{ $absoluteMax }}"
-                   @if($wireMax) wire:model.live.debounce.500ms="{{ $wireMax }}" @endif
                    placeholder="До">
             <span class="max_r">₽</span>
         </div>

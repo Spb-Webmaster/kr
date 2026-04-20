@@ -4,30 +4,12 @@
     <div class="subtitle">Выберете сертификат в интересующим вас разделе</div>
 </div>
 <div class="flex teasers">
-    <a href="#" class="teaser">
-        <img width="359" height="195" src="{{ Storage::url('images/categories/1.jpg') }}" alt="" />
-        <span class="category_name"><span class="absolute">Для мужчин</span></span>
-    </a>
-    <a href="#" class="teaser">
-        <img width="359" height="195" src="{{ Storage::url('images/categories/1.jpg') }}" alt="" />
-        <span class="category_name"><span class="absolute">Для женщин</span></span>
-    </a>
-    <a href="#" class="teaser">
-        <img width="359" height="195" src="{{ Storage::url('images/categories/1.jpg') }}" alt="" />
-        <span class="category_name"><span class="absolute">Для семьи</span></span>
-    </a>
-    <a href="#" class="teaser">
-        <img width="359" height="195" src="{{ Storage::url('images/categories/1.jpg') }}" alt="" />
-        <span class="category_name"><span class="absolute">Для мужчин</span></span>
-    </a>
-    <a href="#" class="teaser">
-        <img width="359" height="195" src="{{ Storage::url('images/categories/1.jpg') }}" alt="" />
-        <span class="category_name"><span class="absolute">Для женщин</span></span>
-    </a>
-    <a href="#" class="teaser">
-        <img width="359" height="195" src="{{ Storage::url('images/categories/1.jpg') }}" alt="" />
-        <span class="category_name"><span class="absolute">Для семьи</span></span>
-    </a>
-
+    @foreach($categories as $category)
+        @php $imgSrc = intervention('359x195', $category->img, 'image/category', 'cover'); @endphp
+        <a href="{{ route('certificates', ['category' => $category->slug]) }}" class="teaser">
+            <img width="359" height="195" src="{{ $imgSrc ? asset($imgSrc) : Storage::url('image/category/no-img-category.jpg') }}" alt="{{ $category->title }}" />
+            <span class="category_name"><span class="absolute">{{ $category->title }}</span></span>
+        </a>
+    @endforeach
 </div>
 </div>

@@ -6,4 +6,10 @@
   top: 3px;
 }
 
+@media (max-width: 468px) {
+  .logo_logo {
+    padding-left: 40px;
+  }
+}
+
 /*# sourceMappingURL=logo.css.map */

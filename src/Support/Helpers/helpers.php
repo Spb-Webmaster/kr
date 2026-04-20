@@ -449,7 +449,7 @@ if (!function_exists('intervention')) {
         if (!$image) {
             return null;
         }
-        if (!File::exists(public_path('storage/' . $image))) {
+        if (!Storage::disk('intervention')->exists($image)) {
             return null;
         }
 

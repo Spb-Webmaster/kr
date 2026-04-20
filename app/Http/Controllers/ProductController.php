@@ -16,12 +16,10 @@ class ProductController extends Controller
         return view('products.products', compact('products', 'category'));
     }
 
-    public function show(string $category, string $slug): View
+    public function show(string $slug): View
     {
         $product = ProductViewModel::make()->product($slug);
 
-        //dd($product);
-
-        return view('products.product', compact('product', 'category'));
+        return view('products.product', compact('product'));
     }
 }

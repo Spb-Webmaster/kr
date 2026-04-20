@@ -33,6 +33,14 @@ header .die_radius .right {
   gap: 40px;
   height: 85px;
 }
+header .die_radius .right ._left {
+  order: 1;
+}
+header .die_radius .right ._right {
+  order: 2;
+  flex-shrink: 0;
+  width: 80px;
+}
 
 .header-page {
   min-height: 106px;
@@ -66,6 +74,21 @@ header .die_radius .right {
   }
   header .die_radius .header-home__wrap {
     padding: 0;
+  }
+  header .die_radius .header-home__wrap .flex {
+    overflow: hidden;
+  }
+  header .die_radius .header-home__wrap .flex .left {
+    width: 50%;
+  }
+  header .die_radius .header-home__wrap .flex .right {
+    width: 50%;
+  }
+  header .die_radius .header-home__wrap .flex .right ._left {
+    width: 63px;
+  }
+  header .die_radius .header-home__wrap .flex .right ._right {
+    width: 63px;
   }
   header .cabinet_enter_enter {
     width: 63px;

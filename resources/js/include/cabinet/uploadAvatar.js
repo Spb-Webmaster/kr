@@ -4,11 +4,9 @@ import {axiosLaravel} from '../axios/axiosLaravel.js'
 export function uploadAvatar() {
 
     const cuAvatar = document.querySelector('.app_cu__avatar');
-    if(cuAvatar) {
-        let url = cuAvatar.dataset.url;
-        let managerId = cuAvatar.dataset.managerid;
-        let userId = cuAvatar.dataset.userid;
-    }
+    let url = cuAvatar ? cuAvatar.dataset.url : '';
+    let managerId = cuAvatar ? cuAvatar.dataset.managerid : '';
+    let userId = cuAvatar ? cuAvatar.dataset.userid : '';
 
     const photoInput = document.getElementById('photoInput');
     if (photoInput) {
@@ -43,7 +41,7 @@ export function uploadAvatar() {
                             const intervention = result.intervention;
                             console.log(intervention);
                             cuAvatar.style.backgroundImage = 'url('+ intervention +')';
-                            cuAvatar.querySelector('.mw').remove()
+                            cuAvatar.querySelector('.mw')?.remove()
 
                             // cuAvatar.style = 'img'
 
@@ -54,7 +52,7 @@ export function uploadAvatar() {
                     })
                     .catch((error) => { console.error(error); });
             } catch (err) {
-                console.error(err.response.data || err.message);
+                console.error(err.response?.data ?? err.message);
             }
         };
     }

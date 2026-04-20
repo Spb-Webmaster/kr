@@ -53,6 +53,16 @@ header {
             justify-content: end;
             gap: 40px;
             height: 85px;
+
+            ._left {
+                order: 1;
+            }
+
+            ._right {
+                order: 2;
+                flex-shrink: 0;
+                width: 80px;
+            }
         }
 
 
@@ -106,12 +116,29 @@ header {
             .header-home__wrap {
 
                 padding: 0;
+                .flex {
+                    overflow: hidden;
+                    .left {
+                        width: 50%;
+                    }
+                    .right {
+                        width: 50%;
+                        ._left {
+                            width: 63px;
+                        }
+                        ._right {
+                            width: 63px;
+                        }
+                    }
+                }
             }
         }
 
         .cabinet_enter_enter {
             width: 63px;
         }
+
+
     }
 
 

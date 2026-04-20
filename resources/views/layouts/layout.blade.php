@@ -36,6 +36,7 @@
 </div><!--.content_-->
  @include('templates.axeld.footer')
     @livewireScripts
+    @stack('scripts')
 </body>
 </html>
 

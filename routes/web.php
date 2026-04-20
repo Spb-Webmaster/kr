@@ -70,7 +70,7 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/{category}/certificates', 'index')
         ->name('certificates');
 
-    Route::get('/{category}/certificates/{slug}', 'show')
+    Route::get('/certificates/{slug}', 'show')
         ->name('certificate');
 
 });
@@ -80,7 +80,7 @@ Route::controller(ProductController::class)->group(function () {
 /** Заказы order **/
 Route::controller(OrderController::class)->group(function () {
 
-    Route::post('/{category}/certificates/{slug}', 'store')
+    Route::post('/certificates/{slug}', 'store')
         ->name('order.store');
 
     Route::get('/order/{number}', 'show')

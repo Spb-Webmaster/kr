@@ -15,7 +15,7 @@
         <div class="product_single">
 
             <div class="title">
-                <h1 class="product_single__title">Заказ оформлен</h1>
+                <h1 class="product_single__title">Заказ оформлен (Данная страница в разработке)</h1>
             </div>
 
             <div class="order_info">

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class OrderController extends Controller
 {
-    public function store(Request $request, string $category, string $slug)
+    public function store(Request $request, string $slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
 

@@ -95,3 +95,12 @@ $colorOrange: #FF732C;
         }
     }
 }
+
+@media (max-width: 468px) {
+    .teasers {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

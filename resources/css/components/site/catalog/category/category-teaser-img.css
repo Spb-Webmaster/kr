@@ -72,4 +72,11 @@
   color: #E20607;
 }
 
+@media (max-width: 468px) {
+  .teasers img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 /*# sourceMappingURL=category-teaser-img.css.map */

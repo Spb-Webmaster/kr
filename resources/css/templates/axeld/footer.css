@@ -108,6 +108,12 @@ footer .footer_flex .address2 {
     align-items: flex-start;
     border-bottom: none;
   }
+  footer .footer_flex .f1 .logo_logo {
+    padding-left: 0 !important;
+  }
+  footer .footer_flex .f1 .social_social {
+    padding-left: 0 !important;
+  }
   footer .footer_flex .f1, footer .footer_flex .f2, footer .footer_flex .f3 {
     width: 100%;
     padding-top: 0;

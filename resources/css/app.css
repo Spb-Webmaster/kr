@@ -10,6 +10,7 @@
 @import 'templates/axeld/content.scss';
 @import 'templates/axeld/left_bar.scss';
 @import 'templates/axeld/product.scss';
+@import 'templates/axeld/element_ai.scss';
 @import 'message/flach_message.scss';
 @import 'trix/trix.scss';
 @import 'nouislider/nouislider.scss';
