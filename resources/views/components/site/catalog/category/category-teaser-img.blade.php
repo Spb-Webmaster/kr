@@ -5,9 +5,9 @@
 </div>
 <div class="flex teasers">
     @foreach($categories as $category)
-        @php $imgSrc = intervention('359x195', $category->img, 'image/category', 'cover'); @endphp
+        @php $imgSrc = intervention('350x190', $category->img, 'image/category', 'cover'); @endphp
         <a href="{{ route('certificates', ['category' => $category->slug]) }}" class="teaser">
-            <img width="359" height="195" src="{{ $imgSrc ? asset($imgSrc) : Storage::url('image/category/no-img-category.jpg') }}" alt="{{ $category->title }}" />
+            <img width="350" height="190" src="{{ $imgSrc ? asset($imgSrc) : Storage::url('image/category/no-img-category.jpg') }}" alt="{{ $category->title }}" />
             <span class="category_name"><span class="absolute">{{ $category->title }}</span></span>
         </a>
     @endforeach

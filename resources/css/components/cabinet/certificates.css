@@ -1,0 +1,108 @@
+.cabinet-certificates {
+  padding: 24px 0;
+}
+.cabinet-certificates__empty {
+  color: #6b6b6b;
+  font-size: 15px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.cabinet-cert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.cabinet-cert-item:last-child {
+  margin-bottom: 0;
+}
+.cabinet-cert-item__left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+.cabinet-cert-item__number {
+  font-size: 12px;
+  color: #6b6b6b;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+.cabinet-cert-item__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.cabinet-cert-item__option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #E20607;
+  background: #fdecee;
+  padding: 5px 12px;
+  border-radius: 10px;
+  width: fit-content;
+}
+.cabinet-cert-item__option svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+.cabinet-cert-item__right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+.cabinet-cert-item__price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #E20607;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.cabinet-cert-item__status {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.cabinet-cert-item__status--active {
+  background: #eaf7ef;
+  color: #1a9e4f;
+}
+.cabinet-cert-item__status--used, .cabinet-cert-item__status--pending {
+  background: #f0f0f0;
+  color: #6b6b6b;
+}
+.cabinet-cert-item__link {
+  font-size: 14px;
+  color: #E20607;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.cabinet-cert-item__link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 700px) {
+  .cabinet-cert-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cabinet-cert-item__right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/*# sourceMappingURL=certificates.css.map */

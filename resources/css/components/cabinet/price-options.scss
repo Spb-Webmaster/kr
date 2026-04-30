@@ -1,0 +1,77 @@
+@charset "utf-8";
+$colorRed: #E20607;
+$colorRedDark: #c10506;
+$colorLine: #ececec;
+
+.price-options-panel {
+    border: 1px solid $colorLine;
+    border-radius: 8px;
+    padding:35px 16px 26px 16px ;
+    margin-bottom: 20px;
+
+    &__select {
+        appearance: none;
+        cursor: pointer;
+    }
+
+    &__remove-col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 27px;
+    }
+
+    &__remove {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        svg path {
+            stroke: $colorRed;
+        }
+
+        &:hover svg path {
+            stroke: $colorRedDark;
+        }
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+    .price-options-panel__remove-col {
+       height: 50px;
+
+        button {
+            border-radius: 20px;
+            width: 30px;
+            height: 30px;
+            background: #cccccc;
+        }
+
+    }
+}
+
+#js-add-price-row {
+    &:disabled {
+        opacity: .4;
+        cursor: not-allowed;
+    }
+}
+@media (max-width: 999px) {
+    .price-options-panel__remove-col {
+        padding-bottom: 20px !important;
+        button {
+            width: 200px !important;
+        }
+
+    }
+
+}

@@ -3,7 +3,9 @@
 namespace Domain\User\ViewModels;
 
 
+use App\Models\Order;
 use App\Models\User;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Domain\User\DTOs\UserUpdateDto;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
@@ -84,6 +86,14 @@ class UserViewModel
         return User::query()
             ->where('id', $id)
             ->firstOrFail();
+    }
+
+    public function UserOrders(): LengthAwarePaginator
+    {
+        return Order::query()
+            ->where('user_id', auth()->id())
+            ->latest()
+            ->paginate(config('site.constants.paginate'));
     }
 
 

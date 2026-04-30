@@ -54,6 +54,7 @@ $colorOrange: #FF732C;
         position: relative;
         padding:25px 10px 15px 10px;
         margin: 0;
+        gap: 13px;
 
         input {
             height: 30px;
@@ -62,7 +63,7 @@ $colorOrange: #FF732C;
             padding: 0 3px;
             font-size: 15px;
             position: relative;
-            max-width: 94px;
+            max-width: 80px;
 
         }
         .min_r,.max_r {

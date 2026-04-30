@@ -28,12 +28,15 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 /** * админка */
 Route::post('/moonshine/setting', [\App\MoonShine\Controllers\SettingController::class, 'setting' ]);
 Route::post('/moonshine/home', [\App\MoonShine\Controllers\HomeController::class, 'home' ]);
+Route::post('/moonshine/order-paper/create', \App\MoonShine\Controllers\OrderPaperCreateController::class)
+    ->middleware('auth:moonshine')
+    ->name('moonshine.order-paper.create');
 /**  * админка */
 
 /**
  * fancybox-ajax
  */
-/** получение самой формы */
+/** получение самой формы  */
 Route::controller(FancyBoxController::class)->group(function () {
     Route::post('/fancybox-ajax', 'fancybox');
 });
@@ -86,10 +89,15 @@ Route::controller(OrderController::class)->group(function () {
     Route::get('/order/{number}', 'show')
         ->name('order.show');
 
+    Route::get('/order/{number}/certificate', 'downloadCertificate')
+        ->name('order.certificate')
+        ->middleware('signed');
+
+    Route::post('/order/{number}/send-certificate', 'sendCertificate')
+        ->name('order.certificate.send');
+
 });
 /** ///Заказы order */
-
-
 
 /**  * Auth */
 Route::controller(SignInController::class)->group(function () {
@@ -167,6 +175,11 @@ Route::controller(CabinetUserController::class)->group(function () {
     Route::put('/cabinet/cabinet.user.update.password', 'settingPasswordHandel')
         ->name('cabinet_user_update_password')
         ->middleware(UserMiddleware::class);
+
+    /** кабинет — список сертификатов */
+    Route::get('/cabinet/my-certificates', 'cabinetUserCertificates')
+        ->name('cabinet_user_certificates')
+        ->middleware(UserMiddleware::class);
 });
 /** ///Cabinet_user */
 
@@ -237,6 +250,60 @@ Route::controller(CabinetVendorController::class)->group(function () {
     Route::get('/vendor-provider/cabinet/services/add', 'cabinetVendorServiceAdd')
         ->middleware(IsVendorMiddleware::class)
         ->name('cabinet_vendor_service_add');
+
+    /** Сохранить новую услугу */
+    Route::post('/vendor-provider/cabinet/services/add', 'cabinetVendorServiceStore')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_service_store');
+
+    /** Редактировать услугу — форма */
+    Route::get('/vendor-provider/cabinet/services/update/{id}', 'cabinetVendorServiceEdit')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_service_edit');
+
+    /** Сохранить изменения услуги */
+    Route::post('/vendor-provider/cabinet/services/update/{id}', 'cabinetVendorServiceUpdate')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_service_update');
+
+    /** Удалить услугу */
+    Route::delete('/vendor-provider/cabinet/services/delete/{id}', 'cabinetVendorServiceDelete')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_service_delete');
+
+    /** Удалить видео услуги */
+    Route::delete('/vendor-provider/cabinet/services/{id}/video', 'cabinetVendorServiceDeleteVideo')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_service_delete_video');
+
+    /** Загрузка видео чанками */
+    Route::post('/vendor-provider/cabinet/upload-video-chunk', 'uploadVideoChunk')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_upload_video_chunk');
+
+    /** Загрузка основного изображения услуги */
+    Route::post('/vendor-provider/cabinet/upload-image', 'uploadImage')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_upload_image');
+
+    /** Загрузка изображения галереи услуги */
+    Route::post('/vendor-provider/cabinet/upload-gallery-image', 'uploadGalleryImage')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_upload_gallery_image');
+
+    /** Проверка сертификата */
+    Route::get('/vendor-provider/cabinet/certificate-check', 'certificateCheck')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_certificate_check');
+
+    Route::post('/vendor-provider/cabinet/certificate-check', 'certificateCheckHandle')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_certificate_check_handle');
+
+    /** Погашение сертификата */
+    Route::post('/vendor-provider/cabinet/certificate-redeem', 'certificateRedeem')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_certificate_redeem');
 });
 
 Route::controller(LogoutVendorController::class)->group(function () {

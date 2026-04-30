@@ -70,7 +70,7 @@ a:hover {
 
 .block {
   width: 100%;
-  max-width: 1260px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
@@ -152,7 +152,7 @@ a:hover {
   width: 100%;
   position: relative;
 }
-.desc p {
+.desc p, .desc div {
   width: 100%;
   position: relative;
   padding: 10px 0;

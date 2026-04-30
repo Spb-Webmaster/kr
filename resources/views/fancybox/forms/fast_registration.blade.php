@@ -45,7 +45,7 @@
                             <div class="fast-login-ajax btn btn-big w_100_important">Войти</div>
                         </div>
                         <div class="right__req">
-                            <x-form.form-button class="w_100_important" url="fast-registration-ajax">Зарегистрироваться
+                            <x-form.form-button class="w_100_important btn_green" url="fast-registration-ajax">Зарегистрироваться
                             </x-form.form-button>
                         </div>
                     </div>

@@ -90,6 +90,20 @@ class CabinetUserController extends Controller
     }
 
 
+    public function cabinetUserCertificates(): View
+    {
+        try {
+            $orders = UserViewModel::make()->UserOrders();
+            $user = UserViewModel::make()->User();
+
+            return view('cabinet.cabinet_user.certificates', compact('orders', 'user'));
+
+        } catch (\Throwable $th) {
+            logErrors($th);
+            abort(404);
+        }
+    }
+
     public function settingPasswordHandel(UpdatePasswordFormRequest $request): RedirectResponse
     {
 

@@ -53,6 +53,15 @@ class FancyBoxController extends Controller
 
         }
 
+        if ($request->template == 'send_certificate') {
+            $number = '';
+            if ($request->data) {
+                $decoded = json_decode($request->data, true);
+                $number = $decoded['number'] ?? '';
+            }
+            return view('fancybox.forms.send_certificate', compact('number'));
+        }
+
         return view('fancybox.forms.error.error_form');
 
     }

@@ -58,6 +58,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'url_short' => env('APP_URL_SHORT', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------

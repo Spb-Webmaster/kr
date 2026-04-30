@@ -137,6 +137,16 @@
                     </div>
 
                     <div class="product_single_desc__wrap">
+                        @if($product->video)
+                            <div class="product_single__options product_single__video-wrap">
+                                <div class="product_single__video">
+                                    <video controls preload="metadata">
+                                        <source src="{{ Storage::disk('moonshine')->url($product->video) }}">
+                                    </video>
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="product_single__options pad_t28_important">
                         @if($product->desc)
                             <div class="product_single__desc desc">
@@ -188,7 +198,7 @@
                                             <div class="product_single__section_description">
                                                 <div class="product_single__section-title">Погодные условия</div>
                                                 <div
-                                                    class="product_single__section-desc">{!! $product->weather !!}</div>
+                                                    class="product_single__section-desc">{!! html_entity_decode($product->weather, ENT_QUOTES | ENT_HTML5, 'UTF-8') !!}</div>
                                             </div>
                                         </div>
                                     @endif
@@ -294,7 +304,7 @@
                                     </div>
                                     <div class="product_single__section_description">
                                         <div class="product_single__section-title">Погодные условия</div>
-                                        <div class="product_single__section-desc">{!! $product->weather !!}</div>
+                                        <div class="product_single__section-desc">{!! html_entity_decode($product->weather, ENT_QUOTES | ENT_HTML5, 'UTF-8') !!}</div>
                                     </div>
                                 </div>
                             @endif

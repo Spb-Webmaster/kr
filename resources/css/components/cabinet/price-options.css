@@ -1,0 +1,63 @@
+.price-options-panel {
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  padding: 35px 16px 26px 16px;
+  margin-bottom: 20px;
+}
+.price-options-panel__select {
+  appearance: none;
+  cursor: pointer;
+}
+.price-options-panel__remove-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 27px;
+}
+.price-options-panel__remove {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.price-options-panel__remove svg path {
+  stroke: #E20607;
+}
+.price-options-panel__remove:hover svg path {
+  stroke: #c10506;
+}
+.price-options-panel .input-group {
+  margin-bottom: 20px;
+}
+.price-options-panel .price-options-panel__remove-col {
+  height: 50px;
+}
+.price-options-panel .price-options-panel__remove-col button {
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  background: #cccccc;
+}
+
+#js-add-price-row:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 999px) {
+  .price-options-panel__remove-col {
+    padding-bottom: 20px !important;
+  }
+  .price-options-panel__remove-col button {
+    width: 200px !important;
+  }
+}
+
+/*# sourceMappingURL=price-options.css.map */

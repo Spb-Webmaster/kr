@@ -11,6 +11,8 @@ use App\MoonShine\Pages\SettingPage;
 use App\MoonShine\Resources\AgeRestriction\AgeRestrictionResource;
 use App\MoonShine\Resources\MoonShineUser\MoonShineUserResource;
 
+use App\MoonShine\Resources\Order\OrderResource;
+use App\MoonShine\Resources\OrderPaper\OrderPaperResource;
 use App\MoonShine\Resources\Page\PageResource;
 use App\MoonShine\Resources\PersonCount\PersonCountResource;
 use App\MoonShine\Resources\ProductPriceOption\ProductPriceOptionResource;
@@ -59,7 +61,7 @@ final class AxeldLayout extends AppLayout
                 MenuItem::make(UserResource::class, 'Пользователи',  'user-group'),
             ]),
 
-            MenuGroup::make(static fn() => __('Сертификаты'), [
+            MenuGroup::make(static fn() => __('Услуги'), [
                 MenuGroup::make(static fn() => __('Опции'), [
                     MenuItem::make(ProductPriceOptionResource::class, 'Опции цены сертификата', 'check'),
                     MenuItem::make(PersonCountResource::class, 'Количество человек', 'check'),
@@ -74,6 +76,10 @@ final class AxeldLayout extends AppLayout
                 MenuItem::make(HomePage::class, 'Главная страница', 'building-library'),
                 MenuItem::make(PageResource::class, 'Страницы', 'check'),
 
+            ]),
+            MenuGroup::make(static fn() => __('Заказы'), [
+                MenuItem::make(OrderResource::class, 'Электронные сертификаты', 'document-check'),
+                MenuItem::make(OrderPaperResource::class, 'Бумажные сертификаты', 'document'),
             ]),
 
             MenuGroup::make(static fn() => __('Настройки'), [

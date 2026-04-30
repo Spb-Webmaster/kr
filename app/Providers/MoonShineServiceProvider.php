@@ -25,6 +25,8 @@ use App\MoonShine\Resources\AgeRestriction\AgeRestrictionResource;
 use App\MoonShine\Resources\ProductCategory\ProductCategoryResource;
 use App\MoonShine\Resources\Product\ProductResource;
 use App\MoonShine\Resources\ProductTag\ProductTagResource;
+use App\MoonShine\Resources\Order\OrderResource;
+use App\MoonShine\Resources\OrderPaper\OrderPaperResource;
 use App\MoonShine\Resources\ProductPriceOption\ProductPriceOptionResource;
 
 class MoonShineServiceProvider extends ServiceProvider
@@ -52,6 +54,8 @@ class MoonShineServiceProvider extends ServiceProvider
                 ProductTagResource::class,
                 PageResource::class,
                 ProductPriceOptionResource::class,
+                OrderResource::class,
+                OrderPaperResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

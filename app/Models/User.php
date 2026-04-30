@@ -64,10 +64,7 @@ class User extends Authenticatable
         return $this->hasMany(Order::class, 'user_id');
     }
 
-    public function certificates(): HasMany
-    {
-        return $this->hasMany(Certificate::class, 'user_id');
-    }
+
 
     protected static function boot(): void
     {

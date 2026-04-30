@@ -11,6 +11,7 @@
 @import 'templates/axeld/left_bar.scss';
 @import 'templates/axeld/product.scss';
 @import 'templates/axeld/element_ai.scss';
+@import 'templates/axeld/order.scss';
 @import 'message/flach_message.scss';
 @import 'trix/trix.scss';
 @import 'nouislider/nouislider.scss';
@@ -39,6 +40,10 @@
 @import 'components/form/form-select-component.scss';
 @import 'components/form/form-upload-files-component.scss';
 @import 'components/cabinet/enter/enter.scss';
+@import 'components/cabinet/certificates.scss';
+@import 'components/cabinet/price-options.scss';
+@import 'components/cabinet/image-upload.scss';
+@import 'components/cabinet/video-upload.scss';
 @import 'components/cabinet/cabinet-menu-horizontal.scss';
 @import 'components/cabinet/title.scss';
 @import 'components/cabinet/partial/style.scss';

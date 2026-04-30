@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use LogicException;
 use App\Models\AgeRestriction;
 use App\Models\City;
@@ -40,8 +41,10 @@ class Product extends Model
         'keywords',
         'vendor_id',
         'city_id',
+        'address',
         'price',
         'prices',
+        'video',
     ];
 
     protected $casts = [
@@ -85,10 +88,12 @@ class Product extends Model
         return $this->hasMany(Order::class, 'product_id');
     }
 
-    public function certificates(): HasMany
+    public function orderPapers(): HasMany
     {
-        return $this->hasMany(Certificate::class, 'product_id');
+        return $this->hasMany(OrderPaper::class, 'product_id');
     }
+
+
 
     protected function pricesList(): Attribute
     {
@@ -147,12 +152,39 @@ class Product extends Model
         });
 
         static::deleted(function ($model) {
+            // Удаляем главную картинку
+            if ($model->img) {
+                Storage::disk('public')->delete($model->img);
+            }
+
+            // Удаляем изображения галереи
+            if ($model->gallery?->isNotEmpty()) {
+                $model->gallery->each(function ($item) {
+                    $img = data_get($item, 'json_gallery_text');
+                    if ($img) {
+                        Storage::disk('public')->delete($img);
+                    }
+                });
+            }
+
+            // Удаляем видео
+            if ($model->video) {
+                Storage::disk('public')->delete($model->video);
+            }
+
+            // Удаляем папки продукта целиком (подчищает всё остальное)
+            if ($model->vendor_id && $model->id) {
+                Storage::disk('public')->deleteDirectory("images/vendors/{$model->vendor_id}/{$model->id}");
+                Storage::disk('public')->deleteDirectory("video/vendors/{$model->vendor_id}/{$model->id}");
+            }
+
             cache_clear();
         });
 
         # Выполняем действия после сохранения
         static::saved(function ($model) {
             cache_clear();
+
         });
 
 

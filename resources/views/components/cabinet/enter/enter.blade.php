@@ -7,6 +7,11 @@
     @endauth
 
     @guest
-        <a href="{{ route('login') }}">{!! $img !!}</a>
+        <a href="{{ route('login') }}">
+            <svg class="cabinet_enter_enter__guest-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+            </svg>
+        </a>
     @endguest
 </div>

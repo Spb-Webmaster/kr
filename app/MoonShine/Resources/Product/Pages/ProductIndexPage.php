@@ -45,6 +45,7 @@ class ProductIndexPage extends IndexPage
             Text::make('Название', 'title'),
             Text::make('Обычная цена', 'price'),
             MinPrice::make('Мин. цена', 'prices'),
+            Switcher::make('Бумажные', 'order_papers_count')->previewMode(),
             Switcher::make('Публикация', 'published')->updateOnPreview(),
             Switcher::make('Title', 'metatitle'),
             Switcher::make('Description', 'description'),

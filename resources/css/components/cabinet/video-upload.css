@@ -1,0 +1,84 @@
+.video-upload {
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.video-upload__label {
+  display: block;
+  padding: 10px 0 10px 0;
+  color: #282828;
+  line-height: 1.3em;
+  position: relative;
+  font-size: 22px;
+  font-weight: 600;
+}
+.video-upload__area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.video-upload__file-input {
+  display: none;
+}
+.video-upload__btn {
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 14px;
+  padding-top: 7px;
+}
+.video-upload__name {
+  font-size: 14px;
+  color: #555;
+  word-break: break-all;
+}
+.video-upload__progress {
+  margin-top: 12px;
+  background: #ececec;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 6px;
+  position: relative;
+}
+.video-upload__progress-bar {
+  height: 100%;
+  background: #E20607;
+  width: 0%;
+  transition: width 0.2s ease;
+  border-radius: 4px;
+}
+.video-upload__progress-text {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}
+.video-upload__current {
+  margin-bottom: 12px;
+}
+.video-upload__preview {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.video-upload__remove {
+  font-size: 13px;
+  color: #E20607;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+.video-upload__status {
+  margin-top: 8px;
+  font-size: 14px;
+}
+.video-upload__status--ok {
+  color: #1a9e3f;
+}
+.video-upload__status--error {
+  color: #E20607;
+}

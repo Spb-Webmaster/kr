@@ -23,5 +23,10 @@
   position: absolute;
   left: 0;
 }
+.cabinet_enter_enter__guest-icon {
+  width: 28px;
+  height: 28px;
+  color: #E20607;
+}
 
 /*# sourceMappingURL=enter.css.map */

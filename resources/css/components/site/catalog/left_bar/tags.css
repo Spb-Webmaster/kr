@@ -1,6 +1,12 @@
+.site_catalog_left-bar {
+  width: 100%;
+  position: relative;
+}
+
 .site_catalog_left-bar_tags-slider {
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 0;
+  width: 100%;
 }
 
 .tag__block {

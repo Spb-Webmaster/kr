@@ -34,4 +34,10 @@ $colorOrange: #FF732C;
             left: 0;
         }
     }
+
+    &__guest-icon {
+        width: 28px;
+        height: 28px;
+        color: $colorRed;
+    }
 }

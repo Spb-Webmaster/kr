@@ -3,8 +3,8 @@
         <li class="{{ active_linkMenu(asset(route('cabinet_user')))  }}">
             <a href="{{ route('cabinet_user') }}">Кабинет</a>
         </li>
-        <li class="">
-            <a href="#">Сертификаты</a>
+        <li class="{{ active_linkMenu(asset(route('cabinet_user_certificates')), 'find') }}">
+            <a href="{{ route('cabinet_user_certificates') }}">Сертификаты</a>
         </li>
         <li class="{{ active_linkMenu(asset(route('cabinet_user_update')), 'find')  }}">
             <a href="{{ route('cabinet_user_update') }}">Настройки</a>

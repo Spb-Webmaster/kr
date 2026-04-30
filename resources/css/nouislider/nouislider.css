@@ -34,6 +34,7 @@
   position: relative;
   padding: 25px 10px 15px 10px;
   margin: 0;
+  gap: 13px;
 }
 .left_bar .price_inputs input {
   height: 30px;
@@ -42,7 +43,7 @@
   padding: 0 3px;
   font-size: 15px;
   position: relative;
-  max-width: 94px;
+  max-width: 80px;
 }
 .left_bar .price_inputs .min_r, .left_bar .price_inputs .max_r {
   position: relative;

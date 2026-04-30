@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enum\CertificateStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -27,11 +28,12 @@ class Order extends Model
         'product_id',
         'user_id',
         'vendor_id',
-        'certificate_id',
+        'certificate_status',
     ];
     protected $casts = [
         'order' => 'collection',
         'notification_yoo_kassa' => 'collection',
+        'certificate_status' => CertificateStatus::class,
     ];
 
     public function user(): BelongsTo
@@ -49,10 +51,6 @@ class Order extends Model
         return $this->belongsTo(Product::class, 'product_id');
     }
 
-    public function certificate(): HasOne
-    {
-        return $this->hasOne(Certificate::class, 'order_id');
-    }
 
     protected static function boot(): void
     {

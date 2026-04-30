@@ -2,33 +2,26 @@
 
 namespace App\Models;
 
+use App\Enum\CertificateStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Certificate extends Model
+class OrderPaper extends Model
 {
-    protected $table = 'certificates';
+    protected $table = 'order_papers';
 
     protected $fillable = [
         'number',
-        'title',
-        'subtitle',
-        'username',
-        'email',
-        'phone',
+        'vendor_id',
+        'product_id',
         'price',
         'price_option',
-        'published', // погашено = 0 активный = 1
-        'order_id',
-        'product_id',
-        'user_id',
-        'vendor_id',
+        'certificate_status',
     ];
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+    protected $casts = [
+        'certificate_status' => CertificateStatus::class,
+    ];
 
     public function vendor(): BelongsTo
     {
@@ -38,11 +31,6 @@ class Certificate extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'product_id');
-    }
-
-    public function order(): BelongsTo
-    {
-        return $this->belongsTo(Order::class, 'order_id');
     }
 
     protected static function boot(): void
@@ -58,7 +46,5 @@ class Certificate extends Model
             cache_clear();
         });
 
-
     }
-
 }

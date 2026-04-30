@@ -44,7 +44,7 @@ class SignUpFormMail extends Mailable
      */
     public function content(): Content
     {
-        return new Content(view: 'html.email.i_want_meet', with: ['user' => $this->formattedData]);
+        return new Content(view: 'html.email.sign_up', with: ['user' => $this->formattedData]);
 
     }
 

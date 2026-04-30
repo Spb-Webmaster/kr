@@ -16,6 +16,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
     @livewireStyles
+    @stack('styles')
     <title>@yield('title', config('seo.seo.title'))</title>
     <meta name="description" content="@yield('description',  config('seo.seo.description'))"/>
     <meta name="keywords" content="@yield('keywords',  config('seo.seo.keywords'))"/>

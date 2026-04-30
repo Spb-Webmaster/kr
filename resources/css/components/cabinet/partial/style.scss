@@ -8,6 +8,225 @@ $colorBlue2: #03a9f4;
 $colorGreen: #0f6567;
 $colorYellow: #FF931E;
 $colorOrange: #FF732C;
+.vendor-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 8px;
+}
+
+.vendor-service-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    padding: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.15s ease;
+}
+
+.vendor-service-card:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.vendor-service-card__img {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.vendor-service-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.vendor-service-card__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.vendor-service-card__title {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #282828;
+    margin: 0 0 6px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+.vendor-service-card__title:hover {
+    text-decoration: underline;
+    color: #282828;
+}
+
+.vendor-service-card__price {
+    font-size: 14px;
+    color: #282828;
+    margin: 0 0 8px 0;
+}
+
+.vendor-service-card__status {
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+.vendor-service_flex {
+    display: flex;
+    justify-content: start;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    .vendor-service-card__status {
+        border-radius: 4px;
+    }
+}
+.vendor-service-card__status--published {
+    background: #e6f4ea;
+    color: #1a9e3f;
+}
+
+.vendor-service-card__status--pending {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.vendor-service-card__link {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    color: #999;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.vendor-service-card__link:hover {
+    color: $colorGreen;
+    background: #f0f7f7;
+}
+
+.vendor-service-card__empty {
+    color: #999;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.btn-delete {
+    background: #fdecea;
+    color: #c62828;
+    border: 1px solid #f5c6c2;
+}
+
+.btn-delete:hover:not(:disabled) {
+    background: #c62828;
+    color: #fff;
+}
+
+.btn-delete:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.vendor-service-card__papers-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #1565c0;
+    background: #e3f2fd;
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.service-status {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.service-status svg {
+    flex-shrink: 0;
+}
+
+.service-status div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.service-status strong {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.service-status span {
+    font-size: 13px;
+}
+
+.service-status--published {
+    background: #e8f7ee;
+    color: #1a6b35;
+}
+
+.service-status--pending {
+    background: #fff4e5;
+    color: #7a4600;
+}
+
+.edit-form-notice {
+    background: #fdecee;
+    border-radius: 14px;
+    padding: 18px 20px;
+    font-size: 14px;
+    color: #5b1a20;
+    line-height: 1.55;
+    margin-bottom: 16px;
+}
+
+.edit-form-notice strong {
+    color: $colorRed;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.edit-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.edit-form-actions__left {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.edit-form-actions__right {
+    display: flex;
+}
+
 .sign_up_buttons {
     padding: 20px 0 10px 0;
     .left {
@@ -25,5 +244,40 @@ $colorOrange: #FF732C;
         }
     }
     .right {
+    }
+}
+
+@media (max-width: 468px) {
+    .vendor-service-card__title {
+        white-space: break-spaces;
+        overflow: visible;
+        text-overflow: clip;
+        padding: 10px 0;
+
+    }
+    .vendor-service-card__price {
+        padding-bottom: 6px;
+
+    }
+    .vendor-service_flex {
+        padding-bottom: 10px;
+    }
+    .edit-form-actions {
+        display: block;
+        .edit-form-actions__left {
+            display: block;
+            .btn { display: block;
+                margin: 15px 0;
+            width: 100%;
+            }
+        }
+        .edit-form-actions__right {
+            display: block;
+            .btn { display: block;
+                width: 100%;
+                margin: 15px 0;
+            }
+        }
+
     }
 }

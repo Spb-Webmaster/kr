@@ -1,0 +1,444 @@
+@charset "utf-8";
+$colorRed: #E20607;
+$colorRedDark: #c10506;
+$colorRedSoft: #fdecee;
+$colorInk: #1a1a1a;
+$colorMuted: #6b6b6b;
+$colorLine: #ececec;
+
+.order-confirmation {
+    padding: 23px 0 70px;
+    font-size: 15px;
+
+    // Success header
+    .order-success-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 36px;
+    }
+
+    .order-success-badge {
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        background: $colorRedSoft;
+        border: 2px solid $colorRed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        animation: order-badge-pop 0.5s cubic-bezier(.34, 1.56, .64, 1) both;
+
+        svg {
+            width: 38px;
+            height: 38px;
+            stroke: $colorRed;
+        }
+    }
+
+    @keyframes order-badge-pop {
+        0% { transform: scale(0); }
+        100% { transform: scale(1); }
+    }
+
+    .order-success-title {
+        color: $colorRed;
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0 0 8px;
+    }
+
+    .order-success-sub {
+        color: $colorMuted;
+        font-size: 15px;
+        max-width: 560px;
+        margin: 0;
+        line-height: 1.55;
+    }
+
+    // Two-column grid
+    .order-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 24px;
+        align-items: start;
+    }
+
+    // Certificate card (left column)
+    .order-cert-card {
+        background: #fff;
+        border: 1px solid $colorLine;
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 4px 24px rgba(226, 6, 7, 0.06);
+
+        // Decorative perforation dots
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: #fff;
+            border-radius: 50%;
+            left: -12px;
+            top: 70px;
+        }
+
+        &::after {
+            left: auto;
+            right: -12px;
+        }
+    }
+
+    .order-cert-ribbon {
+        background: $colorRed;
+        color: #fff;
+        padding: 18px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+
+        .order-cert-ribbon__label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+
+        .order-cert-ribbon__number {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 2px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .order-cert-ribbon__status {
+            background: rgba(255, 255, 255, 0.18);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+
+            &::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                background: #8dff8d;
+                border-radius: 50%;
+                box-shadow: 0 0 0 3px rgba(141, 255, 141, 0.25);
+                flex-shrink: 0;
+            }
+
+            &--pending::before {
+                background: #ffd98d;
+                box-shadow: 0 0 0 3px rgba(255, 217, 141, 0.25);
+            }
+        }
+    }
+
+    .order-cert-body {
+        padding: 30px 32px 10px;
+    }
+
+    .order-cert-eyebrow {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: $colorMuted;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .order-cert-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: $colorInk;
+        margin: 0 0 22px;
+        line-height: 1.25;
+    }
+
+    .order-cert-options {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 26px;
+    }
+
+    .order-opt-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: $colorRedSoft;
+        color: $colorRed;
+        padding: 9px 16px;
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 500;
+
+        svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+    }
+
+    .order-cert-rows {
+        border-top: 1px dashed $colorLine;
+    }
+
+    .order-cert-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 14px 0;
+        border-bottom: 1px dashed $colorLine;
+        font-size: 15px;
+        gap: 16px;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .order-cert-row__key {
+            color: $colorMuted;
+            flex-shrink: 0;
+        }
+
+        .order-cert-row__val {
+            font-weight: 500;
+            text-align: right;
+        }
+    }
+
+    .order-cert-total {
+        padding: 22px 32px;
+        background: #fafafa;
+        border-top: 1px solid $colorLine;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .order-cert-total__label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: $colorMuted;
+            font-weight: 500;
+        }
+
+        .order-cert-total__amount {
+            font-size: 30px;
+            font-weight: 700;
+            color: $colorRed;
+            font-variant-numeric: tabular-nums;
+        }
+    }
+
+    // Side column (right)
+    .order-side {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .order-side-card {
+        background: #fff;
+        border: 1px solid $colorLine;
+        border-radius: 14px;
+        padding: 24px 26px;
+
+        h3 {
+            margin: 0 0 18px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: $colorMuted;
+            font-weight: 500;
+        }
+    }
+
+    .order-buyer-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 0;
+        border-bottom: 1px solid $colorLine;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        &:first-of-type {
+            padding-top: 0;
+        }
+    }
+
+    .order-buyer-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: $colorRedSoft;
+        color: $colorRed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .order-buyer-text {
+        min-width: 0;
+        flex: 1;
+
+        .order-buyer-text__label {
+            font-size: 11px;
+            color: $colorMuted;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .order-buyer-text__val {
+            font-size: 15px;
+            color: $colorInk;
+            font-weight: 500;
+            word-break: break-word;
+        }
+    }
+
+    .order-next-steps {
+        background: $colorRedSoft;
+        border-radius: 14px;
+        padding: 18px 20px;
+        font-size: 13px;
+        color: #5b1a20;
+        line-height: 1.55;
+
+        strong {
+            color: $colorRed;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 18px;
+        }
+    }
+
+    .order-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .order-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 20px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        font-family: inherit;
+        border: 1.5px solid $colorRed;
+        transition: all 0.15s;
+        text-decoration: none;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        &--primary {
+            background: $colorRed;
+            color: #fff;
+
+            &:hover {
+                background: $colorRedDark;
+                border-color: $colorRedDark;
+                color: #fff;
+            }
+        }
+
+        &--ghost {
+            background: #fff;
+            color: $colorRed;
+
+            &:hover {
+                background: $colorRedSoft;
+                color: $colorRed;
+            }
+        }
+    }
+
+
+
+
+
+    // Responsive
+    @media (max-width: 900px) {
+        .order-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .order-cert-title {
+            font-size: 18px;
+        }
+
+        .order-cert-body {
+            padding: 24px 20px 10px;
+        }
+
+        .order-cert-total {
+            padding: 18px 20px;
+        }
+
+        .order-cert-ribbon {
+            padding: 16px 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .order-success-title {
+            font-size: 22px;
+        }
+
+        .order-cert-row {
+            flex-direction: column;
+            gap: 4px;
+
+            .order-cert-row__val {
+                text-align: left;
+            }
+        }
+    }
+}
+
+
+/** Небольшие правки на странице проверка сертификатов покупку продавцом.**/
+.certificate-check-vendor {
+    padding: 0 0 20px 0;
+}
+.certificate-check {
+    .order-confirmation {
+padding: 30px 0 36px 0;
+    }
+}
+
+/** ///Небольшие правки на странице проверка сертификатов покупку продавцом.**/

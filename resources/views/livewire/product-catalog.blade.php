@@ -3,7 +3,7 @@
 
         <div class="product__left left">
             <div class="left_bar">
-
+<div class="cabinet-product-item">
                 {{-- Ценовой слайдер --}}
                 <x-site.catalog.left-bar.price-slider
                     :minPrice="$priceMin"
@@ -11,7 +11,8 @@
                     wireMin="priceMin"
                     wireMax="priceMax"
                 />
-
+</div>
+                <div class="cabinet-product-item">
                 {{-- Теги --}}
                 <div class="site_catalog_left-bar_tags-slider site_catalog_left-bar">
                     <div class="tags _box">
@@ -34,7 +35,8 @@
                         </div>
                     </div>
                 </div>
-
+                </div>
+                <div class="cabinet-product-item">
                 {{-- Города --}}
                 <div class="site_catalog_left-bar_cities-slider site_catalog_left-bar">
                     <div class="tags _box">
@@ -56,6 +58,7 @@
                             @endforelse
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
