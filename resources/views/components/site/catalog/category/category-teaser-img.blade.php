@@ -1,6 +1,6 @@
 <div class="catalog_category_category-teaser-img">
 <div class="t_block">
-    <h2 class="h2 title">Выбрать сертификат22</h2>
+    <h2 class="h2 title">Выбрать сертификат</h2>
     <div class="subtitle">Выберете сертификат в интересующим вас разделе</div>
 </div>
 <div class="flex teasers">
