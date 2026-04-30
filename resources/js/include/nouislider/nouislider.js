@@ -1,4 +1,4 @@
-import 'nouislider/dist/noUiSlider.css'
+import 'nouislider/dist/nouislider.css'
 import Nouislider from "nouislider"
 
 function formatPrice(value) {
