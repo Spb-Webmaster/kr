@@ -30,6 +30,5 @@
     <section class="block relative">
         <x-site.advantage/>
     </section>
-4444444444444444
 
 @endsection
