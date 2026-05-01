@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Cabinet\CabinetVendor;
 
+use App\Event\Vendor\VendorNewServiceEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CabinetVendor\VendorGalleryImageUploadRequest;
 use App\Http\Requests\CabinetVendor\VendorImageUploadRequest;
@@ -129,6 +130,36 @@ class CabinetVendorController extends Controller
             if ($updates) {
                 $product->update($updates);
             }
+
+            $product->load('city', 'personCount', 'ageRestriction', 'categories', 'tags');
+            $vendor->load('legalEntity', 'individualEntrepreneur', 'selfEmployed');
+
+            if ($vendor->legalEntity) {
+                $vendorName = $vendor->legalEntity->name;
+            } elseif ($vendor->individualEntrepreneur) {
+                $vendorName = $vendor->individualEntrepreneur->name;
+            } else {
+                $vendorName = trim(implode(' ', array_filter([$vendor->surname, $vendor->username, $vendor->patronymic])));
+            }
+
+            VendorNewServiceEvent::dispatch([
+                'title'           => $product->title,
+                'subtitle'        => $product->subtitle,
+                'price'           => ($product->price && (int) $product->price > 0) ? price($product->price) : null,
+                'prices_list'     => $product->pricesList,
+                'city'            => $product->city?->title,
+                'person_count'    => $product->personCount?->title,
+                'age_restriction' => $product->ageRestriction?->title,
+                'has_img'         => !empty($product->img),
+                'gallery_count'   => $product->gallery?->count() ?? 0,
+                'has_video'       => !empty($product->video),
+                'categories'      => $product->categories->pluck('title')->toArray(),
+                'tags'            => $product->tags->pluck('title')->toArray(),
+                'vendor_name'     => $vendorName,
+                'vendor_phone'    => format_phone($vendor->phone),
+                'vendor_email'    => $vendor->email,
+            ]);
+
         } catch (\Throwable $th) {
             logErrors($th);
             flash()->alert('Ошибка при сохранении услуги. Попробуйте ещё раз.');

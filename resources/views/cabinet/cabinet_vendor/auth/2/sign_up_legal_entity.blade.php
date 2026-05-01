@@ -78,6 +78,14 @@
 
                                 />
 
+                                <x-form.form-input
+                                    name="name"
+                                    type="text"
+                                    label="Название компании"
+                                    value="{{ (old('name'))?:'' }}"
+                                    required="true"
+                                />
+
                                 <div class="cu_row cu_row_30">
                                     <div class="cu__col">
                                         <div class="input-group">

@@ -14,6 +14,20 @@ class IndividualEntrepreneurViewModel
 
     public function create($request): ?Model
     {
+        $surname    = trim($request->surname ?? '');
+        $username   = trim($request->username ?? '');
+        $patronymic = trim($request->patronymic ?? '');
+
+        $nameInitials = mb_strtoupper(mb_substr($username, 0, 1)) . '.';
+        if ($patronymic !== '') {
+            $nameInitials .= ' ' . mb_strtoupper(mb_substr($patronymic, 0, 1)) . '.';
+        }
+
+        $request->merge([
+            'name'      => trim('ИП ' . $surname . ' ' . $nameInitials),
+            'full_name' => trim('Индивидуальный предприниматель ' . $surname . ' ' . $username . ($patronymic !== '' ? ' ' . $patronymic : '')),
+        ]);
+
         $data = IndividualEntrepreneurDto::formRequest($request);
         return IndividualEntrepreneur::create($data->toArray());
     }

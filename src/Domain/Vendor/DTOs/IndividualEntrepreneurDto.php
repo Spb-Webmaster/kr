@@ -18,7 +18,7 @@ class IndividualEntrepreneurDto
         public readonly ?int $vendor_id,
         public readonly ?string $name,
         public readonly ?string $full_name = null,
-        public readonly ?string $email,
+        public readonly ?string $email = null,
         public readonly ?string $phone = null,
         public readonly ?string $register_address = null,
         public readonly ?string $address = null,
@@ -29,7 +29,7 @@ class IndividualEntrepreneurDto
         public readonly ?string $correspondent_account = null,
         public readonly ?string $payment_account = null,
         public readonly ?string $okved = null,
-        public readonly ?string $payment_nds,
+        public readonly ?string $payment_nds = null,
         public readonly ?int $taxation_id = null,
 
     )

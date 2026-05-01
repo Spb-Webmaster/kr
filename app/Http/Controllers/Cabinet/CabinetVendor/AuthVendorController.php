@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cabinet\CabinetVendor;
 
 use App\Enum\TypeEnum;
 use App\Event\Form\IWantMeetFormEvent;
+use App\Event\Vendor\VendorSignUpEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CabinetVendor\VendorStep1Request;
 use App\Http\Requests\CabinetVendor\VendorStep2Request;
@@ -139,6 +140,18 @@ class AuthVendorController extends Controller
 
             }
             \DB::commit(); // Подтверждение успешной транзакции
+
+            VendorSignUpEvent::dispatch([
+                'type'       => $vendor_sign_up['type'],
+                'email'      => $request->email,
+                'password'   => $vendor_sign_up['password'],
+                'surname'    => $request->surname,
+                'username'   => $request->username,
+                'patronymic' => $request->patronymic,
+                'phone'      => format_phone($request->phone),
+                'name'       => $request->name,
+                'full_name'  => $request->full_name,
+            ]);
 
         } catch (\Throwable $th) {
 

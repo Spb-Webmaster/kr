@@ -59,42 +59,7 @@
                                     </div>
                                 </div>
 
-                                <div class="cu_row cu_row_30">
-                                    <div class="cu__col">
-                                        <div class="input-group">
-                                            <x-form.form-input
-                                                name="surname"
-                                                type="text"
-                                                :label="config('site.constants.surname')"
-                                                value="{{ (old('surname')) ?: '' }}"
-                                                required="true"
-                                            />
-                                        </div>
-                                    </div>
 
-                                    <div class="cu__col">
-                                        <div class="input-group">
-                                            <x-form.form-input
-                                                name="username"
-                                                type="text"
-                                                :label="config('site.constants.username')"
-                                                value="{{ (old('username')) ?: (($username) ?: '')  }}"
-                                                required="true"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div class="cu__col">
-                                        <div class="input-group">
-                                            <x-form.form-input
-                                                name="patronymic"
-                                                type="text"
-                                                :label="config('site.constants.patronymic')"
-                                                value="{{ (old('patronymic')) ?: '' }}"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <x-form.form-select
                                     :name="config('site.constants.city')" {{-- назване --}}
