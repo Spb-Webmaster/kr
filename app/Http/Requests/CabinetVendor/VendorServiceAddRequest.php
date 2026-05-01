@@ -30,6 +30,7 @@ class VendorServiceAddRequest extends FormRequest
             'categories.*'       => ['integer', 'exists:product_categories,id'],
             'tags'               => ['nullable', 'array'],
             'tags.*'             => ['integer', 'exists:product_tags,id'],
+            'address'            => ['required', 'string', 'max:500'],
         ];
     }
 
@@ -61,6 +62,8 @@ class VendorServiceAddRequest extends FormRequest
             'weather.max'            => 'Поле «Погодные условия» не должно превышать :max символов.',
             'special_clothing.max'   => 'Поле «Специальная одежда» не должно превышать :max символов.',
             'img.required'           => 'Необходимо загрузить основное изображение.',
+            'address.required'       => 'Необходимо указать адрес проведения услуги.',
+            'address.max'            => 'Адрес не должен превышать :max символов.',
             'categories.*.integer'   => 'Некорректная категория.',
             'tags.*.integer'         => 'Некорректный тег.',
         ];

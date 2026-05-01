@@ -220,6 +220,20 @@
                                     />
                                 @endif
                                 <br>
+                                {{-- Адрес проведения услуги --}}
+                                <div class="pad_t26_important">
+                                    <x-form.form-input
+                                        name="address"
+                                        type="text"
+                                        label="Адрес проведения услуги"
+                                        value="{{ old('address') ?: $product->address }}"
+                                        required="true"
+                                    />
+                                    <p style="font-size:13px;color:#8a8a92;margin-top:-10px;margin-bottom:26px;">
+                                        Этот адрес на сайте не публикуется. Он будет доступен только тем, кто приобрёл сертификат на данную услугу.
+                                    </p>
+                                </div>
+
                                 <div class="edit-form-notice">
                                     <strong>Внимание!</strong>
                                     После сохранения услуга будет отправлена на повторную модерацию и временно скрыта с сайта до прохождения проверки.

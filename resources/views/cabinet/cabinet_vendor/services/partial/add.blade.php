@@ -177,7 +177,21 @@
                                     />
                                 @endif
 
-                                <div class="input-button pad_t26_important">
+                                {{-- Адрес проведения услуги --}}
+                                <div class="pad_t26_important">
+                                    <x-form.form-input
+                                        name="address"
+                                        type="text"
+                                        label="Адрес проведения услуги"
+                                        value="{{ old('address') ?: '' }}"
+                                        required="true"
+                                    />
+                                    <p style="font-size:13px;color:#8a8a92;margin-top:-10px;margin-bottom:16px;">
+                                        Этот адрес на сайте не публикуется. Он будет доступен только тем, кто приобрёл сертификат на данную услугу.
+                                    </p>
+                                </div>
+
+                                <div class="input-button">
                                     <x-form.form-submit type="submit" class="btn-big">
                                         Отправить на проверку
                                     </x-form.form-submit>
