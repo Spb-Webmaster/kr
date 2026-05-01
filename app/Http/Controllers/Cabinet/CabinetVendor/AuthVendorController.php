@@ -116,8 +116,12 @@ class AuthVendorController extends Controller
 
         \DB::beginTransaction(); // Начинаем транзакцию
         try {
-            // Сохраним данные
-            $vendor = VendorViewModel::make()->create($vendor_sign_up, $request);
+            // Сохраним данные — из сессии берём только password и type,
+            // остальное (username, email и др.) берётся из формы шага 2
+            $vendor = VendorViewModel::make()->create([
+                'password' => $vendor_sign_up['password'],
+                'type'     => $vendor_sign_up['type'],
+            ], $request);
             $request->merge(['vendor_id' => $vendor->id]);
 
             if ($vendor_sign_up['type'] == TypeEnum::LEGALENTITY->value) {
