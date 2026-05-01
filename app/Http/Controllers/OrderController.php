@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event\Order\OrderCreatedEvent;
+use App\Event\Order\SendCertificateEvent;
 use App\Models\Order;
 use App\Models\Product;
 use Domain\Order\ViewModels\OrderViewModel;
@@ -193,7 +194,7 @@ class OrderController extends Controller
 
         $order = Order::where('number', $number)->firstOrFail();
 
-        // TODO: отправить PDF на $request->email
+        SendCertificateEvent::dispatch($order->number, $request->email);
 
         return response()->json(['success' => true]);
     }

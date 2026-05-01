@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документация — Email-уведомления</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; color: #1a1a1a; background: #f5f5f7; padding: 40px 20px; }
+        .wrap { max-width: 960px; margin: 0 auto; }
+        h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+        .subtitle { color: #6b6b73; font-size: 14px; margin-bottom: 40px; }
+        .group { margin-bottom: 40px; }
+        .group-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #8a8a92; border-bottom: 1px solid #e4e4e8; padding-bottom: 8px; margin-bottom: 16px; }
+        .card { background: #fff; border-radius: 10px; border: 1px solid #e4e4e8; margin-bottom: 12px; overflow: hidden; }
+        .card-header { display: flex; align-items: center; gap: 14px; padding: 18px 24px; }
+        .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-user   { background: #e8f4ff; color: #0062cc; }
+        .badge-admin  { background: #fff0f0; color: #e30613; }
+        .badge-vendor { background: #f0fff4; color: #1a6b3c; }
+        .card-title { font-size: 15px; font-weight: 600; }
+        .card-body { padding: 0 24px 20px 24px; }
+        .subject { font-size: 13px; color: #6b6b73; margin-bottom: 10px; }
+        .subject span { font-family: 'Courier New', monospace; background: #f5f5f7; padding: 2px 8px; border-radius: 4px; color: #1a1a1a; }
+        table.meta { width: 100%; border-collapse: collapse; font-size: 14px; }
+        table.meta td { padding: 6px 0; vertical-align: top; }
+        table.meta td:first-child { width: 160px; color: #8a8a92; }
+        .divider { border: none; border-top: 1px solid #f0f0f2; margin: 0 24px; }
+        .file { font-family: 'Courier New', monospace; font-size: 12px; color: #6b6b73; }
+        .content-list { margin: 0; padding-left: 18px; color: #3a3a3a; }
+        .content-list li { margin-bottom: 2px; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <h1>Email-уведомления</h1>
+    <p class="subtitle">Документация по всем письмам, отправляемым с сайта. Обновлено: май 2026.</p>
+
+    <!-- ===== АВТОРИЗАЦИЯ ===== -->
+    <div class="group">
+        <div class="group-title">Авторизация</div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-user">Пользователю</span>
+                <span class="card-title">Регистрация на сайте</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>Регистрация на сайте</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>После успешной регистрации обычного пользователя</td></tr>
+                    <tr><td>Кому</td><td>Зарегистрировавшемуся пользователю</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Auth/SignUpFormMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/sign_up.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>
+                        <ul class="content-list">
+                            <li>Имя пользователя</li>
+                            <li>Email (логин) и пароль для входа</li>
+                            <li>Ссылка на личный кабинет</li>
+                        </ul>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-user">Пользователю</span>
+                <span class="card-title">Восстановление пароля</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>Запрос на смену пароля</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>После запроса восстановления пароля</td></tr>
+                    <tr><td>Кому</td><td>Пользователю, запросившему сброс</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Auth/ForgotPasswordMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/forgot_password.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>Ссылка для сброса пароля</td></tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== ФОРМЫ ===== -->
+    <div class="group">
+        <div class="group-title">Формы</div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-admin">Администратору</span>
+                <span class="card-title">«Хочу заполнить данные при встрече»</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>Хочу заполнить данные при встрече с представителем</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>При отправке формы «Хочу познакомиться» (Fancybox)</td></tr>
+                    <tr><td>Кому</td><td>Администратору (MAIL_ADMIN) + дополнительные email из настроек</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Form/IWantMeetFormMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/i_want_meet.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>Контактные данные пользователя, оставившего заявку</td></tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== РЕГИСТРАЦИЯ ПОСТАВЩИКОВ ===== -->
+    <div class="group">
+        <div class="group-title">Регистрация поставщиков услуг</div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-vendor">Поставщику</span>
+                <span class="card-title">Регистрация — Самозанятый</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>Регистрация поставщика услуг</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>После завершения регистрации самозанятого поставщика</td></tr>
+                    <tr><td>Кому</td><td>Зарегистрировавшемуся поставщику</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Vendor/VendorSignUpSelfEmployedMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/vendor/sign_up_self_employed.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>
+                        <ul class="content-list">
+                            <li>Фамилия, имя, отчество</li>
+                            <li>Телефон, email</li>
+                            <li>Данные для входа: логин и пароль</li>
+                            <li>Примечание: вход возможен после проверки администратором</li>
+                        </ul>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-vendor">Поставщику</span>
+                <span class="card-title">Регистрация — Индивидуальный предприниматель</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>Регистрация поставщика услуг</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>После завершения регистрации ИП</td></tr>
+                    <tr><td>Кому</td><td>Зарегистрировавшемуся поставщику</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Vendor/VendorSignUpIndividualEntrepreneurMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/vendor/sign_up_individual_entrepreneur.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>
+                        <ul class="content-list">
+                            <li>Наименование ИП (Фамилия И.О.)</li>
+                            <li>Телефон, email</li>
+                            <li>Данные для входа: логин и пароль</li>
+                            <li>Примечание: вход возможен после проверки администратором</li>
+                        </ul>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-vendor">Поставщику</span>
+                <span class="card-title">Регистрация — Юридическое лицо</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>Регистрация поставщика услуг</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>После завершения регистрации юридического лица</td></tr>
+                    <tr><td>Кому</td><td>Зарегистрировавшемуся поставщику</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Vendor/VendorSignUpLegalEntityMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/vendor/sign_up_legal_entity.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>
+                        <ul class="content-list">
+                            <li>Фамилия, имя, отчество</li>
+                            <li>Название компании</li>
+                            <li>Телефон, email</li>
+                            <li>Данные для входа: логин и пароль</li>
+                            <li>Примечание: вход возможен после проверки администратором</li>
+                        </ul>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-admin">Администратору</span>
+                <span class="card-title">Уведомление о регистрации нового поставщика</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>АДМИНУ | Регистрация нового поставщика услуг</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>Одновременно с письмом поставщику при любом типе регистрации</td></tr>
+                    <tr><td>Кому</td><td>Администратору (MAIL_ADMIN) + дополнительные email из настроек</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Vendor/VendorSignUpAdminMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/vendor/sign_up_admin.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>
+                        <ul class="content-list">
+                            <li>Тип поставщика (самозанятый / ИП / юр. лицо)</li>
+                            <li>Наименование / название компании</li>
+                            <li>Фамилия, имя, отчество (для физ. лиц)</li>
+                            <li>Телефон, email</li>
+                        </ul>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-admin">Администратору</span>
+                <span class="card-title">Новая услуга поставщика</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>АДМИНУ | Новая услуга поставщика — требует проверки</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>После добавления поставщиком новой услуги</td></tr>
+                    <tr><td>Кому</td><td>Администратору (MAIL_ADMIN) + дополнительные email из настроек</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Vendor/VendorNewServiceMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/vendor/new_service.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>
+                        <ul class="content-list">
+                            <li>Название, подзаголовок услуги</li>
+                            <li>Стоимость (фиксированная или варианты)</li>
+                            <li>Город, количество человек, возрастное ограничение</li>
+                            <li>Наличие изображения, галереи, видео</li>
+                            <li>Категории и теги</li>
+                            <li>Данные продавца: наименование, телефон, email</li>
+                        </ul>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== ЗАКАЗЫ ===== -->
+    <div class="group">
+        <div class="group-title">Заказы (покупка сертификатов)</div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-admin">Администратору</span>
+                <span class="card-title">Новый заказ на сертификат</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>Admin - {номер} - {название услуги}</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>После оформления заказа любым покупателем (авторизован или гость)</td></tr>
+                    <tr><td>Кому</td><td>Администратору (MAIL_ADMIN) + дополнительные email из настроек</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Order/OrderCreatedAdminMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/order/created_admin.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>
+                        <ul class="content-list">
+                            <li>Номер заказа (крупно, красным)</li>
+                            <li>Название и подзаголовок услуги</li>
+                            <li>Стоимость со значком ₽</li>
+                            <li>Ссылка на страницу услуги</li>
+                            <li>Время заказа</li>
+                            <li>Данные покупателя: статус (зарегистрирован / гость), имя, email, телефон</li>
+                            <li>Данные продавца: наименование, телефон, email</li>
+                            <li>Кнопка «Скачать PDF сертификат»</li>
+                        </ul>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-user">Покупателю</span>
+                <span class="card-title">Подтверждение заказа</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>Ваш заказ № {номер} — {название услуги}</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>После оформления заказа, одновременно с письмом администратору</td></tr>
+                    <tr><td>Кому</td><td>Покупателю на email, указанный при заказе</td></tr>
+                    <tr><td>Mail-класс</td><td class="file">app/Mail/Order/OrderCreatedBuyerMail.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/order/created_buyer.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>
+                        <ul class="content-list">
+                            <li>Номер заказа (крупно, красным)</li>
+                            <li>Название, подзаголовок, стоимость (красным), время заказа</li>
+                            <li>Параметры: город, количество человек, возрастное ограничение</li>
+                            <li>Описание услуги (HTML) и дополнительное описание (HTML)</li>
+                            <li>Погодные условия (HTML) и специальная одежда (HTML)</li>
+                            <li>Контакты продавца: телефон и адрес</li>
+                            <li>Блок «Важно» — информация о резервации</li>
+                            <li>Кнопка «Скачать PDF сертификат»</li>
+                        </ul>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="badge badge-user">Получателю</span>
+                <span class="card-title">Отправка сертификата на другой email</span>
+            </div>
+            <hr class="divider">
+            <div class="card-body" style="padding-top:16px;">
+                <div class="subject">Тема: <span>Ваш заказ № {номер} — {название услуги}</span></div>
+                <table class="meta">
+                    <tr><td>Когда</td><td>При отправке сертификата через модальное окно «Отправить на другой e-mail»</td></tr>
+                    <tr><td>Кому</td><td>На произвольный email, указанный пользователем в форме</td></tr>
+                    <tr><td>Job</td><td class="file">app/Jobs/Order/SendCertificateJob.php</td></tr>
+                    <tr><td>Шаблон</td><td class="file">resources/views/html/email/order/created_buyer.blade.php</td></tr>
+                    <tr><td>Содержимое</td><td>Идентично письму покупателя после заказа (тот же шаблон)</td></tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <p style="color:#8a8a92;font-size:13px;margin-top:20px;">
+        Все письма отправляются через очередь (<code>database</code> driver). Настройки SMTP — в <code>.env</code> (MAIL_*).<br>
+        Дополнительные адреса администраторов задаются в настройках MoonShine (поле <code>json_emails</code>).
+    </p>
+
+</div>
+</body>
+</html>

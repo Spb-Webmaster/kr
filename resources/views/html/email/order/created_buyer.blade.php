@@ -212,6 +212,23 @@
     </tr>
     @endif
 
+    {{-- Резервация --}}
+    <tr>
+        <td class="px-40" style="padding:16px 40px 8px 40px;" align="left">
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#fff0f0;border:2px solid #e30613;border-radius:6px;">
+                <tr>
+                    <td style="padding:20px 24px;" align="left">
+                        <div style="font-family:Arial, Helvetica, sans-serif;font-size:13px;line-height:16px;color:#e30613;font-weight:bold;text-transform:uppercase;letter-spacing:1px;padding-bottom:10px;">Важно</div>
+                        <div style="font-family:Arial, Helvetica, sans-serif;font-size:15px;line-height:24px;color:#1a1a1a;">
+                            Чтобы произвести резервацию, необходимо связаться с поставщиком услуги.<br><br>
+                            В случае если услугу организовывает и обеспечивает <strong>o-podarok.ru</strong>, то Вам необходимо связаться с администрацией <strong>o-podarok.ru</strong> в рабочее время.
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
     {{-- Кнопка — скачать сертификат --}}
     <tr>
         <td class="px-40" style="padding:28px 40px 40px 40px;" align="left">
