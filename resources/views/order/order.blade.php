@@ -205,7 +205,7 @@
 </div>
 
 <script>
-document.querySelector('.js-cert-download').addEventListener('click', function () {
+/*document.querySelector('.js-cert-download').addEventListener('click', function () {
     const toast   = document.getElementById('certToast');
     const text    = document.getElementById('certToastText');
 
@@ -223,7 +223,7 @@ document.querySelector('.js-cert-download').addEventListener('click', function (
     setTimeout(function () {
         toast.classList.remove('cert-toast--visible');
     }, 9000);
-});
+});*/
 </script>
 @endpush
 
