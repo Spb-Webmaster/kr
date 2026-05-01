@@ -34,6 +34,7 @@ use MoonShine\UI\Components\Tabs\Tab;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\File;
 use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
 use Throwable;
@@ -86,6 +87,11 @@ class VendorFormPage extends FormPage
                                         ->format("d.m.Y")
                                         ->default(now()->toDateTimeString())
                                         ->sortable(),
+
+                                    Divider::make('Файлы'),
+                                    File::make('Файл 1', 'file1')->nullable()->disk('public')->dir('vendor_files')->allowedExtensions(['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'rtf', 'odt', 'ods', 'csv', 'jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'rar'])->removable()->customName(fn($file) => $this->uniqueFileName('vendor_files', $file->getClientOriginalName())),
+                                    File::make('Файл 2', 'file2')->nullable()->disk('public')->dir('vendor_files')->allowedExtensions(['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'rtf', 'odt', 'ods', 'csv', 'jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'rar'])->removable()->customName(fn($file) => $this->uniqueFileName('vendor_files', $file->getClientOriginalName())),
+                                    File::make('Файл 3', 'file3')->nullable()->disk('public')->dir('vendor_files')->allowedExtensions(['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'rtf', 'odt', 'ods', 'csv', 'jpg', 'jpeg', 'png', 'gif', 'webp', 'zip', 'rar'])->removable()->customName(fn($file) => $this->uniqueFileName('vendor_files', $file->getClientOriginalName())),
                                 ]),
 
                             ])->columnSpan(6),
@@ -115,6 +121,21 @@ class VendorFormPage extends FormPage
 
         ];
 
+    }
+
+    private function uniqueFileName(string $dir, string $originalName): string
+    {
+        $name      = pathinfo($originalName, PATHINFO_FILENAME);
+        $extension = pathinfo($originalName, PATHINFO_EXTENSION);
+        $filename  = $originalName;
+        $counter   = 1;
+
+        while (\Illuminate\Support\Facades\Storage::disk('public')->exists($dir . '/' . $filename)) {
+            $filename = $name . '_' . $counter . '.' . $extension;
+            $counter++;
+        }
+
+        return $filename;
     }
 
     protected function buttons(): ListOf

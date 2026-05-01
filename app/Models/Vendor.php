@@ -24,7 +24,10 @@ class Vendor extends Model
         'about_me',
         'questionnaire',
         'password',
-        'city_id'
+        'city_id',
+        'file1',
+        'file2',
+        'file3'
 
     ];
 

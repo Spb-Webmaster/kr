@@ -30,49 +30,48 @@
         /* ── Шапка ── */
         .cert-ribbon {
             background: none;
-            color: #fff;
             padding: 18px 28px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
             border-bottom: 5px solid #E20607;
-        }
-
-        .cert-ribbon__left {}
-
-        .cert-ribbon__label {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            opacity: 0.85;
-            font-weight: 500;
-            margin-bottom: 4px;
-            color: #282828 ;
-        }
-
-        .cert-ribbon__number {
-            font-size: 24px;
-            font-weight: 700;
-            font-variant-numeric: tabular-nums;
-            color: #000000;
         }
 
         .cert-ribbon__logo {
             max-height: 71px;
-            max-width: 300px;
+            max-width: 220px;
             object-fit: contain;
             display: block;
-            mix-blend-mode: screen;
+            flex-shrink: 0;
         }
 
         .cert-ribbon__brand {
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            opacity: 0.9;
-            text-align: right;
+            color: #1a1a1a;
+            flex-shrink: 0;
+        }
+
+        .cert-ribbon__contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        .cert-ribbon__contact {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .cert-ribbon__contact span {
+            color: #6b6b6b;
+            font-weight: 400;
+            margin-right: 6px;
         }
 
         /* ── Тело ── */
@@ -162,12 +161,38 @@
             align-items: center;
         }
 
+        .cert-total__left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .cert-total__number-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #6b6b6b;
+            font-weight: 500;
+        }
+
+        .cert-total__number {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a1a1a;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .cert-total__right {
+            text-align: right;
+        }
+
         .cert-total__label {
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #6b6b6b;
             font-weight: 500;
+            margin-bottom: 4px;
         }
 
         .cert-total__amount {
@@ -351,15 +376,19 @@
 <div class="cert">
 
     <div class="cert-ribbon">
-        <div class="cert-ribbon__left">
-            <div class="cert-ribbon__label">Номер заказа</div>
-            <div class="cert-ribbon__number">№ {{ $order->number }}</div>
-        </div>
         @if($logoDataUrl)
             <img src="{{ $logoDataUrl }}" alt="{{ config('app.name') }}" class="cert-ribbon__logo" style="-webkit-print-color-adjust: exact;">
         @else
             <div class="cert-ribbon__brand">{{ config('app.name') }}</div>
         @endif
+        <div class="cert-ribbon__contacts">
+            @if(config2('moonshine.setting.phone'))
+                <div class="cert-ribbon__contact"><span>Тел.:</span>{{ format_phone(trim(config2('moonshine.setting.phone'))) }}</div>
+            @endif
+            @if(config2('moonshine.setting.email'))
+                <div class="cert-ribbon__contact"><span>Email:</span>{{ config2('moonshine.setting.email') }}</div>
+            @endif
+        </div>
     </div>
 
     <div class="cert-body">
@@ -398,18 +427,28 @@
                 <span class="cert-row__key">Формат доставки</span>
                 <span class="cert-row__val">Электронный (PDF на e-mail)</span>
             </div>
+            <div class="cert-row">
+                <span class="cert-row__key">Дата покупки</span>
+                <span class="cert-row__val">{{ rusdate3($order->created_at) }}</span>
+            </div>
         </div>
     </div>
 
     <div class="cert-total">
-        <span class="cert-total__label">Стоимость</span>
-        <span class="cert-total__amount">{{ price($order->price) }} {{ config('currency.currency.RUB') }}</span>
+        <div class="cert-total__left">
+            <div class="cert-total__number-label">Номер заказа</div>
+            <div class="cert-total__number">№ {{ $order->number }}</div>
+        </div>
+        <div class="cert-total__right">
+            <div class="cert-total__label">Стоимость</div>
+            <div class="cert-total__amount">{{ price($order->price) }} {{ config('currency.currency.RUB') }}</div>
+        </div>
     </div>
 
     <div class="cert-banner" style="background:#af0421 !important; -webkit-print-color-adjust:exact;">
         <div class="cert-banner__content">
-            <span class="cert-banner__text" style="color:#fff !important;">Подарочные сертификаты действительны</span>
-            <span class="cert-banner__value" style="color:#fff !important;">3 года</span>
+            <span class="cert-banner__text" style="color:#fff !important;">Подарочный сертификат действует</span>
+            <span class="cert-banner__value" style="color:#fff !important;">12 месяцев с момента покупки</span>
         </div>
         @if($giftBoxDataUrl)
             <img src="{{ $giftBoxDataUrl }}" class="cert-banner__img" alt="">
