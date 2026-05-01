@@ -129,7 +129,7 @@ class LegalEntityFormPage extends FormPage
             'phone' => [
                 Rule::unique('legal_entities')->ignore($item->phone, 'phone'),
             ],
-            'vendor_id' => ['unique:legal_entities', 'nullable: true']
+            'vendor_id' => ['nullable', Rule::unique('legal_entities', 'vendor_id')->ignore($item->getOriginal()->getKey())]
         ];
     }
 

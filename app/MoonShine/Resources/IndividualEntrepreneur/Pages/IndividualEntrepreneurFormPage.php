@@ -118,7 +118,7 @@ class IndividualEntrepreneurFormPage extends FormPage
             'phone' => [
                 Rule::unique('individual_entrepreneurs')->ignore($item->phone, 'phone'),
             ],
-            'vendor_id' => ['unique:individual_entrepreneurs', 'nullable: true']
+            'vendor_id' => ['nullable', Rule::unique('individual_entrepreneurs', 'vendor_id')->ignore($item->getOriginal()->getKey())]
 
         ];
     }

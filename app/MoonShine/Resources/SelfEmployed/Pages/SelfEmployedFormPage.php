@@ -115,7 +115,7 @@ class SelfEmployedFormPage extends FormPage
             'phone' => [
                 Rule::unique('self_employeds')->ignore($item->phone, 'phone'),
             ],
-            'vendor_id' => ['unique:self_employeds', 'nullable: true']
+            'vendor_id' => ['nullable', Rule::unique('self_employeds', 'vendor_id')->ignore($item->getOriginal()->getKey())]
 
         ];
 
