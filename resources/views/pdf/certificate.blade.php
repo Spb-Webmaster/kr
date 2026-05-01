@@ -453,11 +453,6 @@
         </div>
     </div>
 
-    @if($order->product?->desc)
-        <div class="cert-desc">
-            <span>{!! $order->product->desc !!}</span>
-        </div>
-    @endif
 
 </div>
 </body>

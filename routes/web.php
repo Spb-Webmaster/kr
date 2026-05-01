@@ -90,8 +90,7 @@ Route::controller(OrderController::class)->group(function () {
         ->name('order.show');
 
     Route::get('/order/{number}/certificate', 'downloadCertificate')
-        ->name('order.certificate')
-        ->middleware('signed');
+        ->name('order.certificate');
 
     Route::post('/order/{number}/send-certificate', 'sendCertificate')
         ->name('order.certificate.send');

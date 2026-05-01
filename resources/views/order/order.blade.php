@@ -138,7 +138,7 @@
                     </div>
 
                     <div class="order-actions">
-                        <a href="{{ URL::signedRoute('order.certificate', ['number' => $order->number]) }}" class="order-btn order-btn--primary js-cert-download">
+                        <a href="{{ route('order.certificate', ['number' => $order->number]) }}" download="certificate-{{ $order->number }}.pdf" class="order-btn order-btn--primary js-cert-download">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                                 <path d="M7 10l5 5 5-5"/>
@@ -209,7 +209,7 @@ document.querySelector('.js-cert-download').addEventListener('click', function (
     const toast   = document.getElementById('certToast');
     const text    = document.getElementById('certToastText');
 
-    text.textContent = 'Формируем сертификат, подождите…';
+    text.textContent = 'Сертификат скачивается…';
     toast.classList.remove('cert-toast--success');
     toast.classList.add('cert-toast--visible');
 
@@ -218,7 +218,7 @@ document.querySelector('.js-cert-download').addEventListener('click', function (
         toast.querySelector('.cert-toast__icon').innerHTML =
             '<polyline points="20 6 9 17 4 12"/>';
         text.textContent = 'Сертификат скачан на ваш компьютер';
-    }, 5000);
+    }, 3000);
 
     setTimeout(function () {
         toast.classList.remove('cert-toast--visible');
