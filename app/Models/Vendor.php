@@ -25,6 +25,7 @@ class Vendor extends Model
         'questionnaire',
         'password',
         'city_id',
+        'can_edit',
         'file1',
         'file2',
         'file3'

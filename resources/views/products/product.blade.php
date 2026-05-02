@@ -149,15 +149,16 @@
 
                         <div class="product_single__options pad_t28_important">
                         @if($product->desc)
-                            <div class="product_single__desc desc">
-                                <h2>Описание</h2>
+                                <h2 class="admin_h2">Описание</h2>
+                            <div class="product_single__desc desc desc_editor__text">
                                 {!! $product->desc !!}
                             </div>
                         @endif
 
+
                         @if($product->other_info)
-                            <div class="product_single__desc desc">
-                                <h2>Дополнительная информация</h2>
+                                <h2 class="admin_h2">Дополнительная информация</h2>
+                                <div class="product_single__desc desc desc_editor__text">
                                 {!! $product->other_info !!}
                             </div>
 
@@ -270,7 +271,7 @@
 
                 </div>
                 <div class="right">
-                    <div class="product_single__content" id="rightScroll">
+                    <div class="product_single__content" id="__rightScroll">
 
                         <div class="product_single__options">
                             <div class="product_single__price_label pad_b28_important">Продажа сертификата</div>
@@ -349,7 +350,17 @@
                         <x-element.banner/>
 
                     </div>
+                    @if(config2('moonshine.setting.marketing'))
+                        <div class="product_single_marketing__wrap">
+                        <div class="product_single_marketing">
+                            {{--                  скрипт marketing--}}
+                            {!!  config2('moonshine.setting.marketing') !!}
+                        </div>
+                        </div>
+                    @endif
+
                 </div>
+
             </div>
 
 

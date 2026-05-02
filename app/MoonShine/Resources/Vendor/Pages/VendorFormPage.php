@@ -77,6 +77,7 @@ class VendorFormPage extends FormPage
                                 Box::make([
 
                                     Switcher::make('Публикация', 'published')->default(1),
+                                    Switcher::make('Разрешить редактирование', 'can_edit')->default(0),
 
                                     BelongsTo::make('Город', 'city', 'title', resource: CityResource::class)->unescape()->nullable(),
 

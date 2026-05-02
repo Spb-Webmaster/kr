@@ -3,7 +3,7 @@
         <li class="{{ active_linkMenu(route('cabinet_vendor_certificate_check'), 'find') }}">
             <a href="{{ route('cabinet_vendor_certificate_check') }}">Проверка сертификата</a>
         </li>
-        <li class="{{ active_linkMenu(asset(route('cabinet_vendor')))  }}">
+        <li class="{{ active_linkMenu(route('cabinet_vendor'), 'find')  }}">
             <a href="{{ route('cabinet_vendor') }}">Личные данные</a>
         </li>
         <li class="{{ active_linkMenu(route('cabinet_vendor_services'), 'find')  }}">

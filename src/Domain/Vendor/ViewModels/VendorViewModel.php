@@ -27,6 +27,18 @@ class VendorViewModel
              ->first();
     }
 
+    public function updateProfile(Vendor $vendor, $request): void
+    {
+        $vendor->update([
+            'surname'    => $request->surname,
+            'username'   => $request->username,
+            'patronymic' => $request->patronymic,
+            'about_me'   => $request->about_me,
+            'phone'      => phone($request->phone),
+            'city_id'    => $request->city_id,
+        ]);
+    }
+
     public function v($email): Vendor|RedirectResponse
     {
         $v =  Vendor::query()

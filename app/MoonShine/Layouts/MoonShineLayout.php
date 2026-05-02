@@ -21,6 +21,7 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             ...parent::assets(),
+            new Js('/js/admin/tab-persist.js'),
         ];
     }
 

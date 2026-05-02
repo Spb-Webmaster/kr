@@ -32,6 +32,24 @@ class IndividualEntrepreneurViewModel
         return IndividualEntrepreneur::create($data->toArray());
     }
 
+    public function update($model, $request): void
+    {
+        $model->update([
+            'name'                  => $request->ie_name,
+            'full_name'             => $request->ie_full_name,
+            'register_address'      => $request->register_address,
+            'address'               => $request->address,
+            'ogrnip'                => $request->ogrnip,
+            'bank'                  => $request->bank,
+            'bik'                   => $request->bik,
+            'okved'                 => $request->okved,
+            'correspondent_account' => $request->correspondent_account,
+            'payment_account'       => $request->payment_account,
+            'taxation_id'           => $request->taxation_id,
+            'payment_nds'           => $request->payment_nds,
+        ]);
+    }
+
     public function render($model): ?array
     {
 

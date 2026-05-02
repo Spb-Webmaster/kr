@@ -18,6 +18,28 @@ class LegalEntityViewModel
         return LegalEntity::create($data->toArray());
 
     }
+    public function update($model, $request): void
+    {
+        $model->update([
+            'name'                  => $request->le_name,
+            'full_name'             => $request->le_full_name,
+            'legal_address'         => $request->legal_address,
+            'address'               => $request->address,
+            'kpp'                   => $request->kpp,
+            'ogrn'                  => $request->ogrn,
+            'director'              => $request->director,
+            'accountant'            => $request->accountant,
+            'person_contract'       => $request->person_contract,
+            'bank'                  => $request->bank,
+            'bik'                   => $request->bik,
+            'okved'                 => $request->okved,
+            'correspondent_account' => $request->correspondent_account,
+            'payment_account'       => $request->payment_account,
+            'taxation_id'           => $request->taxation_id,
+            'payment_nds'           => $request->payment_nds,
+        ]);
+    }
+
     public function render($model): ?array
     {
 

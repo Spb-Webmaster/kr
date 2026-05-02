@@ -17,6 +17,7 @@ use App\MoonShine\Resources\Page\PageResource;
 use App\MoonShine\Resources\PersonCount\PersonCountResource;
 use App\MoonShine\Resources\ProductPriceOption\ProductPriceOptionResource;
 use App\MoonShine\Resources\ProductTag\ProductTagResource;
+use MoonShine\AssetManager\Js;
 use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\ColorManager\Palettes\PurplePalette;
 use MoonShine\ColorManager\ColorManager;
@@ -47,6 +48,7 @@ final class AxeldLayout extends AppLayout
     {
         return [
             ...parent::assets(),
+            new Js('/js/admin/tab-persist.js'),
         ];
     }
 

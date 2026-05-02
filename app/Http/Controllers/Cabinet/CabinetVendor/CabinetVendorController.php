@@ -10,6 +10,12 @@ use App\Http\Requests\CabinetVendor\VendorServiceAddRequest;
 use App\Models\OrderPaper;
 use Domain\Order\ViewModels\OrderViewModel;
 use Domain\Product\ViewModel\ProductViewModel;
+use App\Enum\Moonshine\PaymentNdsEnum;
+use App\Models\Taxation;
+use Domain\City\ViewModel\CityViewModel;
+use Domain\Vendor\IndividualEntrepreneur\IndividualEntrepreneurViewModel;
+use Domain\Vendor\LegalEntity\LegalEntityViewModel;
+use Domain\Vendor\SelfEmployed\SelfEmployedViewModel;
 use Domain\Vendor\ViewModels\VendorViewModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -70,7 +76,66 @@ class CabinetVendorController extends Controller
     public function cabinetVendor():View
     {
         $vendor = VendorViewModel::make()->v(session()->get('v'));
-         return view('cabinet.cabinet_vendor.cabinet_vendor', compact('vendor'));
+        return view('cabinet.cabinet_vendor.cabinet_vendor', compact('vendor'));
+    }
+
+    /** Редактирование профиля продавца */
+    public function cabinetVendorEdit(): View|RedirectResponse
+    {
+        $vendor = VendorViewModel::make()->v(session()->get('v'));
+
+        if (!$vendor->can_edit) {
+            return redirect()->route('cabinet_vendor');
+        }
+
+        $cities = CityViewModel::make()->cities()
+            ->map(fn($item) => ['key' => $item->id, 'value' => $item->title])
+            ->values()
+            ->all();
+
+        $taxations = Taxation::query()
+            ->select('id', 'title')
+            ->get()
+            ->map(fn($item) => ['key' => $item->id, 'value' => $item->title])
+            ->values()
+            ->all();
+
+        $payment_nds = PaymentNdsEnum::toArray();
+
+        return view('cabinet.cabinet_vendor.cabinet_vendor_edit', compact('vendor', 'cities', 'taxations', 'payment_nds'));
+    }
+
+    /** Сохранение редактирования профиля */
+    public function cabinetVendorEditUpdate(Request $request): RedirectResponse
+    {
+        $vendor = VendorViewModel::make()->v(session()->get('v'));
+
+        if (!$vendor->can_edit) {
+            return redirect()->route('cabinet_vendor');
+        }
+
+        $request->validate([
+            'username'   => ['required', 'string', 'max:255'],
+            'surname'    => ['nullable', 'string', 'max:255'],
+            'patronymic' => ['nullable', 'string', 'max:255'],
+            'about_me'   => ['nullable', 'string'],
+            'phone'      => ['nullable', 'string', 'max:20'],
+            'city_id'    => ['nullable', 'integer', 'exists:cities,id'],
+        ]);
+
+        VendorViewModel::make()->updateProfile($vendor, $request);
+
+        if ($vendor->selfEmployed) {
+            SelfEmployedViewModel::make()->update($vendor->selfEmployed, $request);
+        } elseif ($vendor->individualEntrepreneur) {
+            IndividualEntrepreneurViewModel::make()->update($vendor->individualEntrepreneur, $request);
+        } elseif ($vendor->legalEntity) {
+            LegalEntityViewModel::make()->update($vendor->legalEntity, $request);
+        }
+
+        flash()->info('Данные успешно обновлены');
+
+        return redirect()->route('cabinet_vendor_edit');
     }
 
     /** Список услуг */

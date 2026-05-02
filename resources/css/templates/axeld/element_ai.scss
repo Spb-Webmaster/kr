@@ -71,6 +71,30 @@
 
 }
 
+
+.admin_h2 {
+    line-height: 1.25em;
+    padding: 16px 0 8px 0;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 24px;
+    color: #E20607;
+
+}
+
+.desc_editor__text.desc {
+
+    h2, h3 {
+        color: #282828;
+
+    }
+    h3 {
+        font-size: 19px;
+        padding-bottom: 8px;
+    }
+}
+
+
 @media (max-width: 668px) {
     .payment-systems {
         padding-top: 26px;

@@ -303,6 +303,15 @@ Route::controller(CabinetVendorController::class)->group(function () {
     Route::post('/vendor-provider/cabinet/certificate-redeem', 'certificateRedeem')
         ->middleware(IsVendorMiddleware::class)
         ->name('cabinet_vendor_certificate_redeem');
+
+    /** Редактирование профиля */
+    Route::get('/vendor-provider/cabinet/edit', 'cabinetVendorEdit')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_edit');
+
+    Route::post('/vendor-provider/cabinet/edit', 'cabinetVendorEditUpdate')
+        ->middleware(IsVendorMiddleware::class)
+        ->name('cabinet_vendor_edit_update');
 });
 
 Route::controller(LogoutVendorController::class)->group(function () {

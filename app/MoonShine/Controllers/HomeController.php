@@ -15,7 +15,7 @@ final class HomeController extends MoonShineController
     public function home(Request $request): Response
     {
         $data = $request->all();
-        Storage::disk('config')->put("moonshine/setting.php", "<?php\n\n" . 'return ' . var_export($data, true) . ";\n");
+        Storage::disk('config')->put("moonshine/home.php", "<?php\n\n" . 'return ' . var_export($data, true) . ";\n");
         cache_clear();
         return back();
     }

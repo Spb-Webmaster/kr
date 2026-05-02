@@ -55,6 +55,7 @@ class VendorIndexPage extends IndexPage
             Text::make(__('Email'), 'email'),
             Text::make(__('Телефон'), 'phone'),
             Switcher::make('Публикация', 'published')->updateOnPreview(),
+            Switcher::make('Редактирование', 'can_edit')->updateOnPreview(),
         ];
 
     }

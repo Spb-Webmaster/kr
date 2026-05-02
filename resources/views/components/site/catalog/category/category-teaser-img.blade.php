@@ -1,7 +1,7 @@
 <div class="catalog_category_category-teaser-img">
 <div class="t_block">
-    <h2 class="h2 title">Выбрать сертификат</h2>
-    <div class="subtitle">Выберете сертификат в интересующим вас разделе</div>
+    <h2 class="h2 title">{{config2('moonshine.home.category_title')}}</h2>
+    <div class="subtitle">{{config2('moonshine.home.category_subtitle')}}</div>
 </div>
 <div class="flex teasers">
     @foreach($categories as $category)

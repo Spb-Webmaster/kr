@@ -19,6 +19,22 @@ class SelfEmployedViewModel
 
     }
 
+    public function update($model, $request): void
+    {
+        $model->update([
+            'register_address'    => $request->register_address,
+            'address'             => $request->address,
+            'passport_serial'     => $request->passport_serial,
+            'passport_number'     => $request->passport_number,
+            'who_issued'          => $request->who_issued,
+            'date_issued'         => $request->date_issued,
+            'bank'                => $request->bank,
+            'bik'                 => $request->bik,
+            'correspondent_account' => $request->correspondent_account,
+            'payment_account'     => $request->payment_account,
+        ]);
+    }
+
     public function render($model): ?array
     {
 

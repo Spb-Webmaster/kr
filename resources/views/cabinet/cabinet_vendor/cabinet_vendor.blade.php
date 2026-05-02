@@ -53,6 +53,13 @@
                                         </div>
                                     @endforeach
                                 </div>
+
+                                @if($vendor->can_edit)
+                                    <div class="pad_t20">
+                                        <a href="{{ route('cabinet_vendor_edit') }}" class="btn btn-big">Редактировать</a>
+                                    </div>
+                                @endif
+
                             </div>
                             </div>
                         </div>
