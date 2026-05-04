@@ -3,7 +3,7 @@
 
         <li class="{{ $item['class_li'] }} @if($item['parent']) parent @endif {{ active_linkMenu(($item['link']=='/')?$item['link']:asset($item['link']), 'find') }} {{active_linkParentMenu((isset($item['child']))? $item['child']:null)}}">
 
-            <a class="{{ $item['class'] }}" {{ $item['data'] }} href="{{ asset($item['link']) }}">{{ $item['text'] }} @if($item['parent'])<em class="arrow"></em>@endif</a>
+            <a class="{{ $item['class'] }}" {!! $item['data'] !!} href="{{ asset($item['link']) }}">{{ $item['text'] }} @if($item['parent'])<em class="arrow"></em>@endif</a>
 
             @if($item['parent'])
                 @if(isset($item['child']))

@@ -55,8 +55,8 @@ class TopMenu extends Component
 
         $menu[4]['text'] = 'Контакты';
         $menu[4]['link'] = '#';
-        $menu[4]['class'] = false;
-        $menu[4]['data'] = false;
+        $menu[4]['class'] = 'open-fancybox';
+        $menu[4]['data'] = 'data-form="contacts"';
         $menu[4]['class_li'] = false;
         $menu[4]['parent'] = false;
 

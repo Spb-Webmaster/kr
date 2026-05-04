@@ -287,6 +287,15 @@ a:hover {
     }
 }
 
+.modal_address {
+    padding:10px 16px 16px;
+    .title {
+        color: #E20607;font-weight:600;display: block;margin-bottom: 16px;font-size: 18px;
+    }
+    .address {
+        padding-bottom: 5px;
+    }
+}
 
 @media (max-width: 1440px) {
 

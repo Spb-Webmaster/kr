@@ -62,6 +62,10 @@ class FancyBoxController extends Controller
             return view('fancybox.forms.send_certificate', compact('number'));
         }
 
+        if ($request->template == 'contacts') {
+            return view('fancybox.forms.contacts');
+        }
+
         return view('fancybox.forms.error.error_form');
 
     }
