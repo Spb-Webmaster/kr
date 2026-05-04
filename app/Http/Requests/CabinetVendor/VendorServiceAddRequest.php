@@ -64,8 +64,14 @@ class VendorServiceAddRequest extends FormRequest
             'img.required'           => 'Необходимо загрузить основное изображение.',
             'address.required'       => 'Необходимо указать адрес проведения услуги.',
             'address.max'            => 'Адрес не должен превышать :max символов.',
-            'categories.*.integer'   => 'Некорректная категория.',
-            'tags.*.integer'         => 'Некорректный тег.',
+            'categories.*.integer'       => 'Некорректная категория.',
+            'tags.*.integer'             => 'Некорректный тег.',
+            'prices.*.option_id.required' => 'Необходимо выбрать вариант цены.',
+            'prices.*.option_id.integer'  => 'Некорректный вариант цены.',
+            'prices.*.option_id.exists'   => 'Выбранный вариант цены не найден.',
+            'prices.*.price.required'     => 'Необходимо указать стоимость для варианта цены.',
+            'prices.*.price.integer'      => 'Стоимость варианта цены должна быть числом.',
+            'prices.*.price.min'          => 'Стоимость варианта цены должна быть больше нуля.',
         ];
     }
 }

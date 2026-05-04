@@ -30,7 +30,7 @@
                 <div class="cu_row cu_row_30">
                     <div class="cu__col">
                         <div class="input-group">
-                            <select name="prices[{{ $i }}][option_id]" class="input-group__input price-options-panel__select">
+                            <select name="prices[{{ $i }}][option_id]" class="input-group__input price-options-panel__select @error("prices.$i.option_id") _error @enderror">
                                 <option value=""></option>
                                 @foreach($priceOptions as $opt)
                                     <option value="{{ $opt->id }}" @selected((int)($oldPrice['option_id'] ?? 0) === $opt->id)>
@@ -39,6 +39,7 @@
                                 @endforeach
                             </select>
                             <label class="input-group__label @if(!empty($oldPrice['option_id'])) position_top @endif">Вариант цены</label>
+                            <div class="input_error app_input_error">@error("prices.$i.option_id"){{ $message }}@enderror</div>
                         </div>
                     </div>
                     <div class="cu__col">
@@ -46,10 +47,11 @@
                             <input type="text"
                                    inputmode="numeric"
                                    name="prices[{{ $i }}][price]"
-                                   class="input-group__input js-price-input"
+                                   class="input-group__input js-price-input @error("prices.$i.price") _error @enderror"
                                    placeholder=""
                                    value="{{ !empty($oldPrice['price']) ? number_format((int) $oldPrice['price'], 0, '.', ' ') : '' }}" />
                             <label class="input-group__label @if(!empty($oldPrice['price'])) position_top @endif">Цена (руб.)</label>
+                            <div class="input_error app_input_error">@error("prices.$i.price"){{ $message }}@enderror</div>
                         </div>
                     </div>
                     <div class="cu__col price-options-panel__remove-col">
@@ -81,8 +83,15 @@
         return digits.replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0');
     }
 
+    function clearFieldError(field) {
+        field.classList.remove('_error');
+        const err = field.closest('.input-group')?.querySelector('.app_input_error');
+        if (err) err.textContent = '';
+    }
+
     // Навешиваем форматирование на инпут
     function bindPriceInput(input) {
+        input.addEventListener('focus', function () { clearFieldError(this); });
         input.addEventListener('input', function () {
             const pos = this.selectionStart;
             const before = this.value.length;
@@ -92,8 +101,13 @@
         });
     }
 
+    function bindSelect(select) {
+        select.addEventListener('focus', function () { clearFieldError(this); });
+    }
+
     // Подключаем уже существующие поля
     document.querySelectorAll('.js-price-input').forEach(bindPriceInput);
+    document.querySelectorAll('.price-options-panel__select').forEach(bindSelect);
 
     // Перед отправкой снимаем пробелы — бэкенд получает «10000»
     const form = toggle.closest('form');
@@ -172,8 +186,9 @@
             </div>`;
         rowsWrap.appendChild(row);
 
-        // Подключаем форматирование к новому инпуту
+        // Подключаем форматирование и сброс ошибок к новой строке
         bindPriceInput(row.querySelector('.js-price-input'));
+        bindSelect(row.querySelector('.price-options-panel__select'));
         updateAddBtn();
     }
 
