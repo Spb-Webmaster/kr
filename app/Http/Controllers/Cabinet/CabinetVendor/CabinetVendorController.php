@@ -165,6 +165,12 @@ class CabinetVendorController extends Controller
         $tagIds      = $data['tags'] ?? [];
         unset($data['categories'], $data['tags']);
 
+        foreach (['desc', 'special_clothing', 'other_info'] as $field) {
+            if (isset($data[$field]) && trim(strip_tags($data[$field])) === '') {
+                $data[$field] = null;
+            }
+        }
+
         if (!empty($data['gallery'])) {
             $data['gallery'] = json_decode($data['gallery'], true) ?? [];
         }
@@ -255,6 +261,12 @@ class CabinetVendorController extends Controller
         $categoryIds = $data['categories'] ?? [];
         $tagIds      = $data['tags'] ?? [];
         unset($data['categories'], $data['tags']);
+
+        foreach (['desc', 'special_clothing', 'other_info'] as $field) {
+            if (isset($data[$field]) && trim(strip_tags($data[$field])) === '') {
+                $data[$field] = null;
+            }
+        }
 
         if (empty($data['price'])) {
             $data['price'] = 0;
