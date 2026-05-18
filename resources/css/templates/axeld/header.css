@@ -59,7 +59,7 @@ header .die_radius .right ._right {
   }
 }
 @media (max-width: 1300px) {
-  header.header-page, header.header-home {
+  header.header-page, header.header-home section:first-child {
     padding: 0 15px;
   }
 }
