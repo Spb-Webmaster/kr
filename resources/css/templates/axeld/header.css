@@ -53,7 +53,7 @@ header .die_radius .right ._right {
     padding-right: 15px;
     position: relative;
   }
-  header.header-home {
+  header.header-home, header.header-page {
     padding-left: 0;
     padding-right: 0;
   }

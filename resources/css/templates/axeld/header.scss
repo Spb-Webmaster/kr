@@ -82,7 +82,8 @@ header {
         padding-right: 15px;
         position: relative;
 
-        &.header-home {
+        &.header-home,
+        &.header-page {
             padding-left: 0;
             padding-right: 0;
         }
