@@ -92,7 +92,7 @@ header {
 
 @media (max-width: 1300px) {
     header {
-        &.header-page {
+        &.header-page , &.header-home{
             padding: 0 15px;
         }
         .die_radius {
