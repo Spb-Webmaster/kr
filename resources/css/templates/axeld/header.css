@@ -59,9 +59,8 @@ header .die_radius .right ._right {
   }
 }
 @media (max-width: 1300px) {
-  header .die_radius {
-    margin: 0 2%;
-    width: 96%;
+  header.header-page {
+    padding: 0 15px;
   }
 }
 @media (max-width: 568px) {
